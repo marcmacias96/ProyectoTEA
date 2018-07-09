@@ -1,0 +1,1246 @@
+fileFormatVersion: 2
+guid: 840db4920fddce54aac0260264feb4a0
+timeCreated: 1526874223
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f000000900000009100000092000000930000009400000095000000960000009700000098000000990000009a0000009b0000009c0000009d0000009e0000009f000000a0000000a1000000a2000000a3000000a4000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000ac000000ad000000ae000000af000000b0000000b1000000b2000000b3000000b4000000b5000000b6000000b7000000b8000000b9000000ba000000bb000000bc000000bd000000be000000bf000000c0000000c1000000c2000000c3000000c4000000c5000000c6000000c7000000c8000000c9000000ca000000cb000000cc000000cd000000ce000000cf000000d0000000d1000000d2000000d3000000d4000000d5000000d6000000d7000000d8000000d9000000da000000db000000dc000000dd000000de000000df000000e0000000e1000000e2000000e3000000e4000000e5000000e6000000e7000000e8000000e9000000ea000000eb000000ec000000ed000000ee000000ef000000f0000000f1000000f2000000f3000000f4000000f5000000f6000000f7000000f8000000f9000000fa000000fb000000fc000000fd000000fe000000ff000000000100000101000002010000030100000401000005010000060100000701000008010000090100000a0100000b0100000c0100000d0100000e0100000f010000100100001101000012010000130100001401000015010000160100001701000018010000190100001a0100001b0100001c0100001d0100001e0100001f010000200100002101000022010000230100002401000025010000260100002701000028010000290100002a0100002b0100002c0100002d0100002e0100002f010000300100003101000032010000330100003401000035010000360100003701000038010000390100003a0100003b0100003c0100003d0100003e0100003f010000400100004101000042010000430100004401000045010000460100004701000048010000490100004a0100004b0100004c0100004d0100004e0100004f010000500100005101000052010000530100005401000055010000560100005701000058010000590100005a0100005b0100005c0100005d0100005e0100005f010000600100006101000062010000630100006401000065010000660100006701000068010000690100006a0100006b0100006c0100006d0100006e0100006f010000700100007101000072010000730100007401000075010000760100007701000078010000790100007a0100007b0100007c0100007d0100007e0100007f010000800100008101000082010000830100008401000085010000860100008701000088010000890100008a0100008b0100008c0100008d0100008e0100008f010000900100009101000092010000930100009401000095010000960100009701000098010000990100009a0100009b0100009c0100009d0100009e0100009f010000a0010000a1010000a2010000a3010000a4010000a5010000a6010000a7010000a8010000a9010000aa010000ab010000ac010000ad010000ae010000af010000b0010000b1010000b2010000b3010000b4010000b5010000b6010000b7010000b8010000b9010000ba010000bb010000bc010000bd010000be010000bf010000c0010000c1010000c2010000c3010000c4010000c5010000c6010000c7010000c8010000c9010000ca010000cb010000cc010000cd010000ce010000cf010000d0010000d1010000d2010000d3010000d4010000d5010000d6010000d7010000d8010000d9010000da010000db010000dc010000dd010000de010000df010000e0010000e1010000e2010000e3010000e4010000e5010000e6010000e7010000e8010000e9010000ea010000eb010000ec010000ed010000ee010000ef010000f0010000f1010000f2010000f3010000f4010000f5010000f6010000f7010000f8010000f9010000fa010000fb010000fc010000fd010000fe010000ff010000
+  assetHash:
+    serializedVersion: 2
+    Hash: 2a51d717548e411d75fbc21170efc9d3
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 47.92916, y: 0.18231301, z: 92.80957}
+      lookAt: {x: 39.32435, y: -0.81058115, z: 86.200714}
+      up: {x: -0.07227432, y: 0.99583894, z: -0.05550971}
+      fov: 30
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: 0#1
+    100002: 0#1 1
+    100004: 0#1 2
+    100006: 0#1 3
+    100008: 0#1 4
+    100010: 5826
+    100012: badge
+    100014: Base Pipe
+    100016: Base Pipe 1
+    100018: cab1.dxf
+    100020: cab1.dxf 1
+    100022: cab1.dxf 2
+    100024: cab1.dxf#1
+    100026: cabdraw.dxf
+    100028: cabdraw.dxf 1
+    100030: cabdraw.dxf 2
+    100032: cabdraw.dxf 3
+    100034: Cabinet
+    100036: Cabinet 1
+    100038: Cabinet 2
+    100040: Cabinet 3
+    100042: Component#10
+    100044: Component#11
+    100046: Component#11 1
+    100048: Component#11 2
+    100050: Component#11 3
+    100052: Component#12
+    100054: Component#12 1
+    100056: Component#12 2
+    100058: Component#12 3
+    100060: Component#14
+    100062: Component#14 1
+    100064: Component#15
+    100066: Component#16
+    100068: Component#16 1
+    100070: Component#16 2
+    100072: Component#17
+    100074: Component#17 1
+    100076: Component#17 2
+    100078: Component#18
+    100080: Component#19
+    100082: Component#19 1
+    100084: Component#19 2
+    100086: Component#21
+    100088: Component#29
+    100090: Component#30
+    100092: Component#35
+    100094: Component#37
+    100096: Component#39
+    100098: Component#40
+    100100: Component#43
+    100102: Component#5
+    100104: Component#5 1
+    100106: Component#5 2
+    100108: Component#5 3
+    100110: Component#6
+    100112: Component#6 1
+    100114: Component#6 2
+    100116: Component#6 3
+    100118: Component#67
+    100120: Component#7
+    100122: Component#7 1
+    100124: Component#7 2
+    100126: Component#7 3
+    100128: Component#8
+    100130: Component#8 1
+    100132: Component#8 2
+    100134: Component#8 3
+    100136: Component#9
+    100138: Component#9 1
+    100140: Component#9 2
+    100142: Component#9 3
+    100144: daylilybud
+    100146: daylilybud 1
+    100148: daylilybud 2
+    100150: daylilyflower#1
+    100152: daylilyflower#1 1
+    100154: daylilyflower#1 2
+    100156: daylilyflower#1 3
+    100158: daylilyflower#1 4
+    100160: daylilyflower#1 5
+    100162: daylilyfoliage
+    100164: daylilyleaf
+    100166: daylilyleaf 1
+    100168: daylilyleaf 10
+    100170: daylilyleaf 11
+    100172: daylilyleaf 12
+    100174: daylilyleaf 13
+    100176: daylilyleaf 14
+    100178: daylilyleaf 15
+    100180: daylilyleaf 16
+    100182: daylilyleaf 17
+    100184: daylilyleaf 18
+    100186: daylilyleaf 19
+    100188: daylilyleaf 2
+    100190: daylilyleaf 20
+    100192: daylilyleaf 21
+    100194: daylilyleaf 22
+    100196: daylilyleaf 23
+    100198: daylilyleaf 24
+    100200: daylilyleaf 25
+    100202: daylilyleaf 26
+    100204: daylilyleaf 27
+    100206: daylilyleaf 28
+    100208: daylilyleaf 29
+    100210: daylilyleaf 3
+    100212: daylilyleaf 30
+    100214: daylilyleaf 31
+    100216: daylilyleaf 32
+    100218: daylilyleaf 33
+    100220: daylilyleaf 34
+    100222: daylilyleaf 35
+    100224: daylilyleaf 36
+    100226: daylilyleaf 37
+    100228: daylilyleaf 38
+    100230: daylilyleaf 39
+    100232: daylilyleaf 4
+    100234: daylilyleaf 40
+    100236: daylilyleaf 41
+    100238: daylilyleaf 5
+    100240: daylilyleaf 6
+    100242: daylilyleaf 7
+    100244: daylilyleaf 8
+    100246: daylilyleaf 9
+    100248: daylilypetal#2
+    100250: daylilypetal#2 1
+    100252: daylilypetal#2 2
+    100254: daylilypetal#2 3
+    100256: daylilypetal#2 4
+    100258: daylilypetal#2 5
+    100260: daylilypetal#3
+    100262: daylilypetal#3 1
+    100264: daylilypetal#3 10
+    100266: daylilypetal#3 11
+    100268: daylilypetal#3 12
+    100270: daylilypetal#3 13
+    100272: daylilypetal#3 14
+    100274: daylilypetal#3 15
+    100276: daylilypetal#3 16
+    100278: daylilypetal#3 17
+    100280: daylilypetal#3 18
+    100282: daylilypetal#3 19
+    100284: daylilypetal#3 2
+    100286: daylilypetal#3 20
+    100288: daylilypetal#3 21
+    100290: daylilypetal#3 22
+    100292: daylilypetal#3 23
+    100294: daylilypetal#3 24
+    100296: daylilypetal#3 25
+    100298: daylilypetal#3 26
+    100300: daylilypetal#3 27
+    100302: daylilypetal#3 28
+    100304: daylilypetal#3 29
+    100306: daylilypetal#3 3
+    100308: daylilypetal#3 4
+    100310: daylilypetal#3 5
+    100312: daylilypetal#3 6
+    100314: daylilypetal#3 7
+    100316: daylilypetal#3 8
+    100318: daylilypetal#3 9
+    100320: daylilyscape#2
+    100322: daylilyscape#2 1
+    100324: daylilyscape#2 2
+    100326: daylilyscape#3
+    100328: daylilyscape#3 1
+    100330: daylilyscape#3 2
+    100332: Group 101
+    100334: Group 104
+    100336: Group 106
+    100338: Group 108
+    100340: Group 110
+    100342: Group 112
+    100344: Group 115
+    100346: Group 117
+    100348: Group 120
+    100350: Group 122
+    100352: Group 125
+    100354: Group 127
+    100356: Group 129
+    100358: Group 130
+    100360: Group 132
+    100362: Group 134
+    100364: Group 145
+    100366: Group 147
+    100368: Group 150
+    100370: Group 152
+    100372: Group 157
+    100374: Group 159
+    100376: Group 161
+    100378: Group 162
+    100380: Group 164
+    100382: Group 166
+    100384: Group 177
+    100386: Group 179
+    100388: Group 182
+    100390: Group 184
+    100392: Group 187
+    100394: Group 189
+    100396: Group 192
+    100398: Group 194
+    100400: Group 208
+    100402: Group 3
+    100404: Group 325
+    100406: Group 357
+    100408: Group 5
+    100410: Group 56
+    100412: Group 57
+    100414: Group 59
+    100416: Group 61
+    100418: Group 63
+    100420: Group 65
+    100422: Group 67
+    100424: Group 7
+    100426: Group 93
+    100428: Group 95
+    100430: Group 97
+    100432: Group 99
+    100434: Group#1
+    100436: Group#10
+    100438: Group#17
+    100440: Group#17 1
+    100442: Group#17 2
+    100444: Group#17 3
+    100446: Group#18
+    100448: Group#19
+    100450: Group#2
+    100452: Group#24
+    100454: Group#24 1
+    100456: Group#24 2
+    100458: Group#24 3
+    100460: Group#3
+    100462: Group#30
+    100464: Group#30 1
+    100466: Group#4
+    100468: Group#43
+    100470: Group#43 1
+    100472: Group#47
+    100474: Group#47 1
+    100476: Group#47 2
+    100478: Group#47 3
+    100480: Group#5
+    100482: Group#5 1
+    100484: Group#52
+    100486: Group#52 1
+    100488: Group#55
+    100490: Group#55 1
+    100492: Group#56
+    100494: Group#56 1
+    100496: Group#57
+    100498: Group#6
+    100500: Group#6 1
+    100502: Group#7
+    100504: Group#7 1
+    100506: Group#8
+    100508: Group#8 1
+    100510: Group#9
+    100512: H1
+    100514: H1 1
+    100516: H1 2
+    100518: Handle Base
+    100520: Handle Base 1
+    100522: Handle#1
+    100524: Handle#1 1
+    100526: Jennair_Logo#1
+    100528: K-5826 Self-Trimming 32-1/2" x 21-9/16" x 9-5/8" under-mount single-bowl
+      sink with short apron
+    100530: KitchenAid Built-In French Door Refrigerator
+    100532: Kitchens
+    100534: Kitchens 1
+    100536: Kitchens 2
+    100538: Kitchens#1
+    100540: logo badge
+    100542: logo#1
+    100544: Pink Lilies#1
+    100546: Pipe
+    100548: Pretty Kitchen Two
+    100550: skp17C#1
+    100552: skp17C#1 1
+    100554: skp17C#1 2
+    100556: skp17C#1 3
+    100558: skp17C#1 4
+    100560: skpBBCC
+    100562: //RootNode
+    100564: Vase_Quarter
+    100566: Vase_Quarter 1
+    100568: Vase_Quarter 2
+    100570: Vase_Quarter 3
+    100572: vase_thin#3
+    100574: Watar Tap
+    100576: Water Faucet 2 - Detailed
+    400000: 0#1
+    400002: 0#1 1
+    400004: 0#1 2
+    400006: 0#1 3
+    400008: 0#1 4
+    400010: 5826
+    400012: badge
+    400014: Base Pipe
+    400016: Base Pipe 1
+    400018: cab1.dxf
+    400020: cab1.dxf 1
+    400022: cab1.dxf 2
+    400024: cab1.dxf#1
+    400026: cabdraw.dxf
+    400028: cabdraw.dxf 1
+    400030: cabdraw.dxf 2
+    400032: cabdraw.dxf 3
+    400034: Cabinet
+    400036: Cabinet 1
+    400038: Cabinet 2
+    400040: Cabinet 3
+    400042: Component#10
+    400044: Component#11
+    400046: Component#11 1
+    400048: Component#11 2
+    400050: Component#11 3
+    400052: Component#12
+    400054: Component#12 1
+    400056: Component#12 2
+    400058: Component#12 3
+    400060: Component#14
+    400062: Component#14 1
+    400064: Component#15
+    400066: Component#16
+    400068: Component#16 1
+    400070: Component#16 2
+    400072: Component#17
+    400074: Component#17 1
+    400076: Component#17 2
+    400078: Component#18
+    400080: Component#19
+    400082: Component#19 1
+    400084: Component#19 2
+    400086: Component#21
+    400088: Component#29
+    400090: Component#30
+    400092: Component#35
+    400094: Component#37
+    400096: Component#39
+    400098: Component#40
+    400100: Component#43
+    400102: Component#5
+    400104: Component#5 1
+    400106: Component#5 2
+    400108: Component#5 3
+    400110: Component#6
+    400112: Component#6 1
+    400114: Component#6 2
+    400116: Component#6 3
+    400118: Component#67
+    400120: Component#7
+    400122: Component#7 1
+    400124: Component#7 2
+    400126: Component#7 3
+    400128: Component#8
+    400130: Component#8 1
+    400132: Component#8 2
+    400134: Component#8 3
+    400136: Component#9
+    400138: Component#9 1
+    400140: Component#9 2
+    400142: Component#9 3
+    400144: daylilybud
+    400146: daylilybud 1
+    400148: daylilybud 2
+    400150: daylilyflower#1
+    400152: daylilyflower#1 1
+    400154: daylilyflower#1 2
+    400156: daylilyflower#1 3
+    400158: daylilyflower#1 4
+    400160: daylilyflower#1 5
+    400162: daylilyfoliage
+    400164: daylilyleaf
+    400166: daylilyleaf 1
+    400168: daylilyleaf 10
+    400170: daylilyleaf 11
+    400172: daylilyleaf 12
+    400174: daylilyleaf 13
+    400176: daylilyleaf 14
+    400178: daylilyleaf 15
+    400180: daylilyleaf 16
+    400182: daylilyleaf 17
+    400184: daylilyleaf 18
+    400186: daylilyleaf 19
+    400188: daylilyleaf 2
+    400190: daylilyleaf 20
+    400192: daylilyleaf 21
+    400194: daylilyleaf 22
+    400196: daylilyleaf 23
+    400198: daylilyleaf 24
+    400200: daylilyleaf 25
+    400202: daylilyleaf 26
+    400204: daylilyleaf 27
+    400206: daylilyleaf 28
+    400208: daylilyleaf 29
+    400210: daylilyleaf 3
+    400212: daylilyleaf 30
+    400214: daylilyleaf 31
+    400216: daylilyleaf 32
+    400218: daylilyleaf 33
+    400220: daylilyleaf 34
+    400222: daylilyleaf 35
+    400224: daylilyleaf 36
+    400226: daylilyleaf 37
+    400228: daylilyleaf 38
+    400230: daylilyleaf 39
+    400232: daylilyleaf 4
+    400234: daylilyleaf 40
+    400236: daylilyleaf 41
+    400238: daylilyleaf 5
+    400240: daylilyleaf 6
+    400242: daylilyleaf 7
+    400244: daylilyleaf 8
+    400246: daylilyleaf 9
+    400248: daylilypetal#2
+    400250: daylilypetal#2 1
+    400252: daylilypetal#2 2
+    400254: daylilypetal#2 3
+    400256: daylilypetal#2 4
+    400258: daylilypetal#2 5
+    400260: daylilypetal#3
+    400262: daylilypetal#3 1
+    400264: daylilypetal#3 10
+    400266: daylilypetal#3 11
+    400268: daylilypetal#3 12
+    400270: daylilypetal#3 13
+    400272: daylilypetal#3 14
+    400274: daylilypetal#3 15
+    400276: daylilypetal#3 16
+    400278: daylilypetal#3 17
+    400280: daylilypetal#3 18
+    400282: daylilypetal#3 19
+    400284: daylilypetal#3 2
+    400286: daylilypetal#3 20
+    400288: daylilypetal#3 21
+    400290: daylilypetal#3 22
+    400292: daylilypetal#3 23
+    400294: daylilypetal#3 24
+    400296: daylilypetal#3 25
+    400298: daylilypetal#3 26
+    400300: daylilypetal#3 27
+    400302: daylilypetal#3 28
+    400304: daylilypetal#3 29
+    400306: daylilypetal#3 3
+    400308: daylilypetal#3 4
+    400310: daylilypetal#3 5
+    400312: daylilypetal#3 6
+    400314: daylilypetal#3 7
+    400316: daylilypetal#3 8
+    400318: daylilypetal#3 9
+    400320: daylilyscape#2
+    400322: daylilyscape#2 1
+    400324: daylilyscape#2 2
+    400326: daylilyscape#3
+    400328: daylilyscape#3 1
+    400330: daylilyscape#3 2
+    400332: Group 101
+    400334: Group 104
+    400336: Group 106
+    400338: Group 108
+    400340: Group 110
+    400342: Group 112
+    400344: Group 115
+    400346: Group 117
+    400348: Group 120
+    400350: Group 122
+    400352: Group 125
+    400354: Group 127
+    400356: Group 129
+    400358: Group 130
+    400360: Group 132
+    400362: Group 134
+    400364: Group 145
+    400366: Group 147
+    400368: Group 150
+    400370: Group 152
+    400372: Group 157
+    400374: Group 159
+    400376: Group 161
+    400378: Group 162
+    400380: Group 164
+    400382: Group 166
+    400384: Group 177
+    400386: Group 179
+    400388: Group 182
+    400390: Group 184
+    400392: Group 187
+    400394: Group 189
+    400396: Group 192
+    400398: Group 194
+    400400: Group 208
+    400402: Group 3
+    400404: Group 325
+    400406: Group 357
+    400408: Group 5
+    400410: Group 56
+    400412: Group 57
+    400414: Group 59
+    400416: Group 61
+    400418: Group 63
+    400420: Group 65
+    400422: Group 67
+    400424: Group 7
+    400426: Group 93
+    400428: Group 95
+    400430: Group 97
+    400432: Group 99
+    400434: Group#1
+    400436: Group#10
+    400438: Group#17
+    400440: Group#17 1
+    400442: Group#17 2
+    400444: Group#17 3
+    400446: Group#18
+    400448: Group#19
+    400450: Group#2
+    400452: Group#24
+    400454: Group#24 1
+    400456: Group#24 2
+    400458: Group#24 3
+    400460: Group#3
+    400462: Group#30
+    400464: Group#30 1
+    400466: Group#4
+    400468: Group#43
+    400470: Group#43 1
+    400472: Group#47
+    400474: Group#47 1
+    400476: Group#47 2
+    400478: Group#47 3
+    400480: Group#5
+    400482: Group#5 1
+    400484: Group#52
+    400486: Group#52 1
+    400488: Group#55
+    400490: Group#55 1
+    400492: Group#56
+    400494: Group#56 1
+    400496: Group#57
+    400498: Group#6
+    400500: Group#6 1
+    400502: Group#7
+    400504: Group#7 1
+    400506: Group#8
+    400508: Group#8 1
+    400510: Group#9
+    400512: H1
+    400514: H1 1
+    400516: H1 2
+    400518: Handle Base
+    400520: Handle Base 1
+    400522: Handle#1
+    400524: Handle#1 1
+    400526: Jennair_Logo#1
+    400528: K-5826 Self-Trimming 32-1/2" x 21-9/16" x 9-5/8" under-mount single-bowl
+      sink with short apron
+    400530: KitchenAid Built-In French Door Refrigerator
+    400532: Kitchens
+    400534: Kitchens 1
+    400536: Kitchens 2
+    400538: Kitchens#1
+    400540: logo badge
+    400542: logo#1
+    400544: Pink Lilies#1
+    400546: Pipe
+    400548: Pretty Kitchen Two
+    400550: skp17C#1
+    400552: skp17C#1 1
+    400554: skp17C#1 2
+    400556: skp17C#1 3
+    400558: skp17C#1 4
+    400560: skpBBCC
+    400562: //RootNode
+    400564: Vase_Quarter
+    400566: Vase_Quarter 1
+    400568: Vase_Quarter 2
+    400570: Vase_Quarter 3
+    400572: vase_thin#3
+    400574: Watar Tap
+    400576: Water Faucet 2 - Detailed
+    2100000: _defaultMat
+    2100002: '[Color_006]'
+    2100004: _9
+    2100006: _11
+    2100008: '[Metal_Corrogated_Shiny]9'
+    2100010: Metal_Corrogated_Shiny1
+    2100012: Formica_180FX_3421_Bianca-Luna_60x96
+    2100014: '[Metal_Corrogated_Shiny]1'
+    2100016: _2
+    2100018: '[Wood_Cherry_Original]'
+    2100020: '[Color_002]'
+    2100022: Color_000
+    2100024: '[Color_000]'
+    2100026: Formica_180FX_3421_Bianca-Luna_60x1
+    2100028: '[Color_C05]'
+    2100030: _Blue Glass_
+    2100032: Water1
+    2100034: '[Color_F16]'
+    2100036: '[Color_E04]1'
+    2100038: '[Color_E06]'
+    2100040: '[Color_D03]'
+    2100042: '[Color_F11]1'
+    2100044: '[Metal_Corrogated_Shiny]5'
+    2100046: _Charcoal_
+    2100048: '[Metal_Corrogated_Shiny]6'
+    2100050: _CorrogateShiny_1
+    2100052: forsketchup
+    2100054: '[Metal_Corrogated_Shiny]2'
+    2100056: Color_007
+    2100058: Metal_Corrogated_Shiny
+    2100060: Color_006
+    2100062: Color_001
+    2300000: 0#1
+    2300002: 0#1 1
+    2300004: 0#1 2
+    2300006: 0#1 3
+    2300008: 0#1 4
+    2300010: 5826
+    2300012: badge
+    2300014: Base Pipe
+    2300016: Base Pipe 1
+    2300018: Component#10
+    2300020: Component#11
+    2300022: Component#11 1
+    2300024: Component#11 2
+    2300026: Component#11 3
+    2300028: Component#12
+    2300030: Component#12 1
+    2300032: Component#12 2
+    2300034: Component#12 3
+    2300036: Component#14
+    2300038: Component#14 1
+    2300040: Component#16
+    2300042: Component#16 1
+    2300044: Component#16 2
+    2300046: Component#17
+    2300048: Component#17 1
+    2300050: Component#17 2
+    2300052: Component#18
+    2300054: Component#19
+    2300056: Component#19 1
+    2300058: Component#19 2
+    2300060: Component#30
+    2300062: Component#35
+    2300064: Component#37
+    2300066: Component#39
+    2300068: Component#40
+    2300070: Component#43
+    2300072: Component#5
+    2300074: Component#5 1
+    2300076: Component#5 2
+    2300078: Component#5 3
+    2300080: Component#6
+    2300082: Component#6 1
+    2300084: Component#6 2
+    2300086: Component#6 3
+    2300088: Component#7
+    2300090: Component#7 1
+    2300092: Component#7 2
+    2300094: Component#7 3
+    2300096: Component#8
+    2300098: Component#8 1
+    2300100: Component#8 2
+    2300102: Component#8 3
+    2300104: Component#9
+    2300106: Component#9 1
+    2300108: Component#9 2
+    2300110: Component#9 3
+    2300112: daylilybud
+    2300114: daylilybud 1
+    2300116: daylilybud 2
+    2300118: daylilyleaf
+    2300120: daylilyleaf 1
+    2300122: daylilyleaf 10
+    2300124: daylilyleaf 11
+    2300126: daylilyleaf 12
+    2300128: daylilyleaf 13
+    2300130: daylilyleaf 14
+    2300132: daylilyleaf 15
+    2300134: daylilyleaf 16
+    2300136: daylilyleaf 17
+    2300138: daylilyleaf 18
+    2300140: daylilyleaf 19
+    2300142: daylilyleaf 2
+    2300144: daylilyleaf 20
+    2300146: daylilyleaf 21
+    2300148: daylilyleaf 22
+    2300150: daylilyleaf 23
+    2300152: daylilyleaf 24
+    2300154: daylilyleaf 25
+    2300156: daylilyleaf 26
+    2300158: daylilyleaf 27
+    2300160: daylilyleaf 28
+    2300162: daylilyleaf 29
+    2300164: daylilyleaf 3
+    2300166: daylilyleaf 30
+    2300168: daylilyleaf 31
+    2300170: daylilyleaf 32
+    2300172: daylilyleaf 33
+    2300174: daylilyleaf 34
+    2300176: daylilyleaf 35
+    2300178: daylilyleaf 36
+    2300180: daylilyleaf 37
+    2300182: daylilyleaf 38
+    2300184: daylilyleaf 39
+    2300186: daylilyleaf 4
+    2300188: daylilyleaf 40
+    2300190: daylilyleaf 41
+    2300192: daylilyleaf 5
+    2300194: daylilyleaf 6
+    2300196: daylilyleaf 7
+    2300198: daylilyleaf 8
+    2300200: daylilyleaf 9
+    2300202: daylilypetal#2
+    2300204: daylilypetal#2 1
+    2300206: daylilypetal#2 2
+    2300208: daylilypetal#2 3
+    2300210: daylilypetal#2 4
+    2300212: daylilypetal#2 5
+    2300214: daylilypetal#3
+    2300216: daylilypetal#3 1
+    2300218: daylilypetal#3 10
+    2300220: daylilypetal#3 11
+    2300222: daylilypetal#3 12
+    2300224: daylilypetal#3 13
+    2300226: daylilypetal#3 14
+    2300228: daylilypetal#3 15
+    2300230: daylilypetal#3 16
+    2300232: daylilypetal#3 17
+    2300234: daylilypetal#3 18
+    2300236: daylilypetal#3 19
+    2300238: daylilypetal#3 2
+    2300240: daylilypetal#3 20
+    2300242: daylilypetal#3 21
+    2300244: daylilypetal#3 22
+    2300246: daylilypetal#3 23
+    2300248: daylilypetal#3 24
+    2300250: daylilypetal#3 25
+    2300252: daylilypetal#3 26
+    2300254: daylilypetal#3 27
+    2300256: daylilypetal#3 28
+    2300258: daylilypetal#3 29
+    2300260: daylilypetal#3 3
+    2300262: daylilypetal#3 4
+    2300264: daylilypetal#3 5
+    2300266: daylilypetal#3 6
+    2300268: daylilypetal#3 7
+    2300270: daylilypetal#3 8
+    2300272: daylilypetal#3 9
+    2300274: Group 101
+    2300276: Group 104
+    2300278: Group 106
+    2300280: Group 108
+    2300282: Group 110
+    2300284: Group 112
+    2300286: Group 115
+    2300288: Group 117
+    2300290: Group 120
+    2300292: Group 122
+    2300294: Group 125
+    2300296: Group 127
+    2300298: Group 130
+    2300300: Group 132
+    2300302: Group 134
+    2300304: Group 145
+    2300306: Group 147
+    2300308: Group 150
+    2300310: Group 152
+    2300312: Group 157
+    2300314: Group 159
+    2300316: Group 162
+    2300318: Group 164
+    2300320: Group 166
+    2300322: Group 177
+    2300324: Group 179
+    2300326: Group 182
+    2300328: Group 184
+    2300330: Group 187
+    2300332: Group 189
+    2300334: Group 192
+    2300336: Group 194
+    2300338: Group 208
+    2300340: Group 3
+    2300342: Group 325
+    2300344: Group 357
+    2300346: Group 5
+    2300348: Group 57
+    2300350: Group 59
+    2300352: Group 61
+    2300354: Group 63
+    2300356: Group 65
+    2300358: Group 67
+    2300360: Group 7
+    2300362: Group 93
+    2300364: Group 95
+    2300366: Group 97
+    2300368: Group 99
+    2300370: Group#1
+    2300372: Group#10
+    2300374: Group#17
+    2300376: Group#17 1
+    2300378: Group#17 2
+    2300380: Group#17 3
+    2300382: Group#18
+    2300384: Group#19
+    2300386: Group#2
+    2300388: Group#3
+    2300390: Group#4
+    2300392: Group#43
+    2300394: Group#43 1
+    2300396: Group#47
+    2300398: Group#47 1
+    2300400: Group#47 2
+    2300402: Group#47 3
+    2300404: Group#5
+    2300406: Group#5 1
+    2300408: Group#57
+    2300410: Group#6
+    2300412: Group#6 1
+    2300414: Group#7
+    2300416: Group#7 1
+    2300418: Group#8
+    2300420: Group#8 1
+    2300422: Group#9
+    2300424: H1
+    2300426: H1 1
+    2300428: H1 2
+    2300430: Handle Base
+    2300432: Handle Base 1
+    2300434: Pipe
+    2300436: Vase_Quarter
+    2300438: Vase_Quarter 1
+    2300440: Vase_Quarter 2
+    2300442: Vase_Quarter 3
+    2300444: Watar Tap
+    3300000: 0#1
+    3300002: 0#1 1
+    3300004: 0#1 2
+    3300006: 0#1 3
+    3300008: 0#1 4
+    3300010: 5826
+    3300012: badge
+    3300014: Base Pipe
+    3300016: Base Pipe 1
+    3300018: Component#10
+    3300020: Component#11
+    3300022: Component#11 1
+    3300024: Component#11 2
+    3300026: Component#11 3
+    3300028: Component#12
+    3300030: Component#12 1
+    3300032: Component#12 2
+    3300034: Component#12 3
+    3300036: Component#14
+    3300038: Component#14 1
+    3300040: Component#16
+    3300042: Component#16 1
+    3300044: Component#16 2
+    3300046: Component#17
+    3300048: Component#17 1
+    3300050: Component#17 2
+    3300052: Component#18
+    3300054: Component#19
+    3300056: Component#19 1
+    3300058: Component#19 2
+    3300060: Component#30
+    3300062: Component#35
+    3300064: Component#37
+    3300066: Component#39
+    3300068: Component#40
+    3300070: Component#43
+    3300072: Component#5
+    3300074: Component#5 1
+    3300076: Component#5 2
+    3300078: Component#5 3
+    3300080: Component#6
+    3300082: Component#6 1
+    3300084: Component#6 2
+    3300086: Component#6 3
+    3300088: Component#7
+    3300090: Component#7 1
+    3300092: Component#7 2
+    3300094: Component#7 3
+    3300096: Component#8
+    3300098: Component#8 1
+    3300100: Component#8 2
+    3300102: Component#8 3
+    3300104: Component#9
+    3300106: Component#9 1
+    3300108: Component#9 2
+    3300110: Component#9 3
+    3300112: daylilybud
+    3300114: daylilybud 1
+    3300116: daylilybud 2
+    3300118: daylilyleaf
+    3300120: daylilyleaf 1
+    3300122: daylilyleaf 10
+    3300124: daylilyleaf 11
+    3300126: daylilyleaf 12
+    3300128: daylilyleaf 13
+    3300130: daylilyleaf 14
+    3300132: daylilyleaf 15
+    3300134: daylilyleaf 16
+    3300136: daylilyleaf 17
+    3300138: daylilyleaf 18
+    3300140: daylilyleaf 19
+    3300142: daylilyleaf 2
+    3300144: daylilyleaf 20
+    3300146: daylilyleaf 21
+    3300148: daylilyleaf 22
+    3300150: daylilyleaf 23
+    3300152: daylilyleaf 24
+    3300154: daylilyleaf 25
+    3300156: daylilyleaf 26
+    3300158: daylilyleaf 27
+    3300160: daylilyleaf 28
+    3300162: daylilyleaf 29
+    3300164: daylilyleaf 3
+    3300166: daylilyleaf 30
+    3300168: daylilyleaf 31
+    3300170: daylilyleaf 32
+    3300172: daylilyleaf 33
+    3300174: daylilyleaf 34
+    3300176: daylilyleaf 35
+    3300178: daylilyleaf 36
+    3300180: daylilyleaf 37
+    3300182: daylilyleaf 38
+    3300184: daylilyleaf 39
+    3300186: daylilyleaf 4
+    3300188: daylilyleaf 40
+    3300190: daylilyleaf 41
+    3300192: daylilyleaf 5
+    3300194: daylilyleaf 6
+    3300196: daylilyleaf 7
+    3300198: daylilyleaf 8
+    3300200: daylilyleaf 9
+    3300202: daylilypetal#2
+    3300204: daylilypetal#2 1
+    3300206: daylilypetal#2 2
+    3300208: daylilypetal#2 3
+    3300210: daylilypetal#2 4
+    3300212: daylilypetal#2 5
+    3300214: daylilypetal#3
+    3300216: daylilypetal#3 1
+    3300218: daylilypetal#3 10
+    3300220: daylilypetal#3 11
+    3300222: daylilypetal#3 12
+    3300224: daylilypetal#3 13
+    3300226: daylilypetal#3 14
+    3300228: daylilypetal#3 15
+    3300230: daylilypetal#3 16
+    3300232: daylilypetal#3 17
+    3300234: daylilypetal#3 18
+    3300236: daylilypetal#3 19
+    3300238: daylilypetal#3 2
+    3300240: daylilypetal#3 20
+    3300242: daylilypetal#3 21
+    3300244: daylilypetal#3 22
+    3300246: daylilypetal#3 23
+    3300248: daylilypetal#3 24
+    3300250: daylilypetal#3 25
+    3300252: daylilypetal#3 26
+    3300254: daylilypetal#3 27
+    3300256: daylilypetal#3 28
+    3300258: daylilypetal#3 29
+    3300260: daylilypetal#3 3
+    3300262: daylilypetal#3 4
+    3300264: daylilypetal#3 5
+    3300266: daylilypetal#3 6
+    3300268: daylilypetal#3 7
+    3300270: daylilypetal#3 8
+    3300272: daylilypetal#3 9
+    3300274: Group 101
+    3300276: Group 104
+    3300278: Group 106
+    3300280: Group 108
+    3300282: Group 110
+    3300284: Group 112
+    3300286: Group 115
+    3300288: Group 117
+    3300290: Group 120
+    3300292: Group 122
+    3300294: Group 125
+    3300296: Group 127
+    3300298: Group 130
+    3300300: Group 132
+    3300302: Group 134
+    3300304: Group 145
+    3300306: Group 147
+    3300308: Group 150
+    3300310: Group 152
+    3300312: Group 157
+    3300314: Group 159
+    3300316: Group 162
+    3300318: Group 164
+    3300320: Group 166
+    3300322: Group 177
+    3300324: Group 179
+    3300326: Group 182
+    3300328: Group 184
+    3300330: Group 187
+    3300332: Group 189
+    3300334: Group 192
+    3300336: Group 194
+    3300338: Group 208
+    3300340: Group 3
+    3300342: Group 325
+    3300344: Group 357
+    3300346: Group 5
+    3300348: Group 57
+    3300350: Group 59
+    3300352: Group 61
+    3300354: Group 63
+    3300356: Group 65
+    3300358: Group 67
+    3300360: Group 7
+    3300362: Group 93
+    3300364: Group 95
+    3300366: Group 97
+    3300368: Group 99
+    3300370: Group#1
+    3300372: Group#10
+    3300374: Group#17
+    3300376: Group#17 1
+    3300378: Group#17 2
+    3300380: Group#17 3
+    3300382: Group#18
+    3300384: Group#19
+    3300386: Group#2
+    3300388: Group#3
+    3300390: Group#4
+    3300392: Group#43
+    3300394: Group#43 1
+    3300396: Group#47
+    3300398: Group#47 1
+    3300400: Group#47 2
+    3300402: Group#47 3
+    3300404: Group#5
+    3300406: Group#5 1
+    3300408: Group#57
+    3300410: Group#6
+    3300412: Group#6 1
+    3300414: Group#7
+    3300416: Group#7 1
+    3300418: Group#8
+    3300420: Group#8 1
+    3300422: Group#9
+    3300424: H1
+    3300426: H1 1
+    3300428: H1 2
+    3300430: Handle Base
+    3300432: Handle Base 1
+    3300434: Pipe
+    3300436: Vase_Quarter
+    3300438: Vase_Quarter 1
+    3300440: Vase_Quarter 2
+    3300442: Vase_Quarter 3
+    3300444: Watar Tap
+    4300000: Mesh Group 3
+    4300002: Mesh Group 5
+    4300004: Mesh Group 7
+    4300006: Mesh Component#14
+    4300008: Mesh Component#11
+    4300010: Mesh Component#12
+    4300012: Mesh Component#9
+    4300014: Mesh Component#7
+    4300016: Mesh Component#8
+    4300018: Mesh Component#6
+    4300020: Mesh Component#5
+    4300022: Mesh Component#10
+    4300024: Mesh Group 57
+    4300026: Mesh Group 59
+    4300028: Mesh Group 61
+    4300030: Mesh Group 63
+    4300032: Mesh Group 65
+    4300034: Mesh Group 67
+    4300036: Mesh Base Pipe
+    4300038: Mesh Handle Base
+    4300040: Mesh Pipe
+    4300042: Mesh Watar Tap
+    4300044: Mesh 5826
+    4300046: Mesh Group#43
+    4300048: Mesh Group 93
+    4300050: Mesh Group 95
+    4300052: Mesh Group 97
+    4300054: Mesh Group 99
+    4300056: Mesh Group 101
+    4300058: Mesh Group 115
+    4300060: Mesh Group 117
+    4300062: Mesh Group 125
+    4300064: Mesh Group 127
+    4300066: Mesh Group 130
+    4300068: Mesh Group 132
+    4300070: Mesh Group 134
+    4300072: Mesh Group#47
+    4300074: Mesh Group#17
+    4300076: Mesh Group 145
+    4300078: Mesh Group 147
+    4300080: Mesh Group 150
+    4300082: Mesh Group 152
+    4300084: Mesh Group#57
+    4300086: Mesh Vase_Quarter
+    4300088: Mesh Group 208
+    4300090: Mesh daylilypetal#3
+    4300092: Mesh daylilypetal#2
+    4300094: Mesh daylilypetal#3
+    4300096: Mesh daylilybud
+    4300098: Mesh daylilyleaf
+    4300100: Mesh H1
+    4300102: Mesh Component#43
+    4300104: Mesh Component#40
+    4300106: Mesh Component#37
+    4300108: Mesh Component#39
+    4300110: Mesh badge
+    4300112: Mesh Component#18
+    4300114: Mesh Component#19
+    4300116: Mesh Component#17
+    4300118: Mesh Component#16
+    4300120: Mesh Component#35
+    4300122: Mesh Component#11
+    4300124: Mesh Component#12
+    4300126: Mesh Component#30
+    4300128: Mesh Group#2
+    4300130: Mesh Group#8
+    4300132: Mesh Group#5
+    4300134: Mesh Group#4
+    4300136: Mesh Group#3
+    4300138: Mesh Group#9
+    4300140: Mesh Group#7
+    4300142: Mesh Group#10
+    4300144: Mesh Group#6
+    4300146: Mesh Group#8
+    4300148: Mesh Group#19
+    4300150: Mesh Group#6
+    4300152: Mesh Group#5
+    4300154: Mesh Group#7
+    4300156: Mesh Group#18
+    4300158: Mesh Group#1
+    4300160: Mesh 0#1
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
