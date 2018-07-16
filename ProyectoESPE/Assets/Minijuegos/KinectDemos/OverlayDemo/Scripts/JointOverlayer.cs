@@ -6,8 +6,8 @@ using System;
 
 public class JointOverlayer : MonoBehaviour 
 {
-//	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
-//	public GUITexture backgroundImage;
+	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
+	public GUITexture backgroundImage;
 
 	[Tooltip("Camera that will be used to overlay the 3D-objects over the background.")]
 	public Camera foregroundCamera;
@@ -24,7 +24,7 @@ public class JointOverlayer : MonoBehaviour
 	[Tooltip("Smoothing factor used for joint rotation.")]
 	public float smoothFactor = 10f;
 
-	//public UnityEngine.UI.Text debugText;
+	//public GUIText debugText;
 
 	[NonSerialized]
 	public Quaternion initialRotation = Quaternion.identity;
@@ -57,11 +57,11 @@ public class JointOverlayer : MonoBehaviour
 		
 		if(manager && manager.IsInitialized() && foregroundCamera)
 		{
-//			//backgroundImage.renderer.material.mainTexture = manager.GetUsersClrTex();
-//			if(backgroundImage && (backgroundImage.texture == null))
-//			{
-//				backgroundImage.texture = manager.GetUsersClrTex();
-//			}
+			//backgroundImage.renderer.material.mainTexture = manager.GetUsersClrTex();
+			if(backgroundImage && (backgroundImage.texture == null))
+			{
+				backgroundImage.texture = manager.GetUsersClrTex();
+			}
 			
 			// get the background rectangle (use the portrait background, if available)
 			Rect backgroundRect = foregroundCamera.pixelRect;

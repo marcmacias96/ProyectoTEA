@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System;
 using System.IO;
 using System.Text;
-#if (UNITY_STANDALONE_WIN)
+#if !UNITY_WSA
 using ICSharpCode.SharpZipLib.Zip;
 #endif
 //using OpenCvSharp;
@@ -25,12 +25,10 @@ public class KinectInterop
 //		typeof(Kinect2Interface), typeof(Kinect1Interface), typeof(OpenNI2Interface)
 //	};
 	public static DepthSensorInterface[] SensorInterfaceOrder = new DepthSensorInterface[] { 
-#if (UNITY_WSA_10_0 && NETFX_CORE)
+#if UNITY_WSA_10_0 && NETFX_CORE
 		new Kinect2UwpInterface()
-#elif (UNITY_STANDALONE_WIN)
-		new Kinect2Interface(), new Kinect1Interface()/**, new OpenNI2Interface()*/
 #else
-		new DummyK2Interface()
+		new Kinect2Interface(), new Kinect1Interface()/**, new OpenNI2Interface()*/
 #endif
 	};
 
@@ -366,12 +364,10 @@ public class KinectInterop
 		public Material depth2ColorMaterial;
 		public ComputeBuffer depth2ColorBuffer;
 		public Vector2[] depth2ColorCoords;
-		public long lastDepth2ColorCoordsTime = 0;
 
 		public Vector3[] depth2SpaceCoords;
 		public bool spaceCoordsBufferReady = false;
 		public object spaceCoordsBufferLock = new object();
-		public long lastDepth2SpaceCoordsTime = 0;
 
         public bool backgroundRemovalInited = false;
         public bool backgroundRemovalHiRes = false;
@@ -381,15 +377,13 @@ public class KinectInterop
 		public Material color2DepthMaterial;
 		public ComputeBuffer color2DepthBuffer;
 		public Vector2[] color2DepthCoords;
-		public long lastColor2DepthCoordsTime = 0;
 		
 		public RenderTexture alphaBodyTexture;
 		public Material alphaBodyMaterial;
-		public Material erodeBodyMaterial, dilateBodyMaterial, medianBodyMaterial, blurBodyMaterial;
+		public Material erodeBodyMaterial, dilateBodyMaterial, blurBodyMaterial;
 
 		public int erodeIterations;
 		public int dilateIterations;
-		public bool applyMedianFilter = false;
 
 		public RenderTexture colorBackgroundTexture;
 		public Material colorBackgroundMaterial;
@@ -462,12 +456,8 @@ public class KinectInterop
 		public Vector3 shouldersDirection;
 		public float bodyTurnAngle;
 		//public float bodyFullAngle;
-		//public float turnAroundFactor;
 		public bool isTurnedAround;
-		public float turnFaceLastTrackedTime;
-		public float turnLeftShoulderTrackedTime;
-		public float turnRightShoulderTrackedTime;
-		public float turnShoulderDistTrackedTime;
+		public float turnAroundFactor;
 
 		public Quaternion leftHandOrientation;
 		public Quaternion rightHandOrientation;
@@ -508,13 +498,13 @@ public class KinectInterop
         [MarshalAsAttribute(UnmanagedType.ByValArray, SizeConst = 6, ArraySubType = UnmanagedType.Struct)]
         public BodyData[] bodyData;
         //public UnityEngine.Vector4 floorClipPlane;
-		public bool bJointVelocities;
+		public bool bTurnAnalisys;
 		
 		public BodyFrameData(int bodyCount, int jointCount)
 		{
 			liRelativeTime = liPreviousTime = 0;
 			//floorClipPlane = UnityEngine.Vector4.zero;
-			bJointVelocities = false;
+			bTurnAnalisys = false;
 
 			bodyData = new BodyData[bodyCount];
 
@@ -1296,7 +1286,7 @@ public class KinectInterop
 
 			if(bNewFrame)
 			{
-				if(bodyFrame.bJointVelocities && bodyFrame.liPreviousTime > 0)
+				if(bodyFrame.bTurnAnalisys && bodyFrame.liPreviousTime > 0)
 				{
 					CalcBodyFrameJointVels(sensorData, ref bodyFrame);
 				}
@@ -1558,11 +1548,6 @@ public class KinectInterop
 						sensorData.color2DepthCoords = null;
 					}
 
-					if (sensorData.color2DepthCoords != null) 
-					{
-						sensorData.lastColor2DepthCoordsTime = DateTime.Now.Ticks;
-					}
-
 					// buffer is ready
 					lock(sensorData.depthCoordsBufferLock)
 					{
@@ -1583,11 +1568,6 @@ public class KinectInterop
 					{
 						sensorData.depth2ColorCoords = null;
 					}
-
-					if (sensorData.depth2ColorCoords != null) 
-					{
-						sensorData.lastDepth2ColorCoordsTime = DateTime.Now.Ticks;
-					}
 					
 					// buffer is ready
 					lock(sensorData.depthCoordsBufferLock)
@@ -1607,11 +1587,6 @@ public class KinectInterop
 					if(!MapDepthFrameToSpaceCoords(sensorData, ref sensorData.depth2SpaceCoords))
 					{
 						sensorData.depth2SpaceCoords = null;
-					}
-
-					if (sensorData.depth2SpaceCoords != null) 
-					{
-						sensorData.lastDepth2SpaceCoordsTime = DateTime.Now.Ticks;
 					}
 					
 					// buffer is ready
@@ -1760,8 +1735,7 @@ public class KinectInterop
 	{
 		Vector2 vPoint = Vector2.zero;
 
-		if (sensorData.depth2ColorCoords != null &&
-			(sensorData.sensorIntPlatform == DepthSensorPlatform.KinectSDKv2 || sensorData.sensorIntPlatform == DepthSensorPlatform.KinectUWPv2))
+		if (sensorData.depth2ColorCoords != null) 
 		{
 			int pIndex = (int)depthPos.y * sensorData.depthImageWidth + (int)depthPos.x;
 			if (pIndex >= 0 && pIndex < sensorData.depth2ColorCoords.Length)
@@ -1811,8 +1785,7 @@ public class KinectInterop
 		{
 			int cIndex = (int)colorPos.y * sensorData.colorImageWidth + (int)colorPos.x;
 
-			if(sensorData.color2DepthCoords != null &&
-				(sensorData.sensorIntPlatform == DepthSensorPlatform.KinectSDKv2 || sensorData.sensorIntPlatform == DepthSensorPlatform.KinectUWPv2))
+			if(sensorData.color2DepthCoords != null)
 			{
 				if (cIndex >= 0 && cIndex < sensorData.color2DepthCoords.Length) 
 				{
@@ -2019,7 +1992,7 @@ public class KinectInterop
 	// Unzips resource file to the target path
 	public static bool UnzipResourceDirectory(string targetDirPath, string resZipFileName, string checkForDir)
 	{
-#if (UNITY_STANDALONE_WIN)
+#if !UNITY_WSA
 		if(checkForDir != string.Empty && Directory.Exists(checkForDir))
 		{
 			return false;
@@ -2096,7 +2069,7 @@ public class KinectInterop
 	public static bool UnzipResourceFiles(Dictionary<string, string> dictFilesToUnzip, string resZipFileName, 
 	                                      ref bool bOneCopied, ref bool bAllCopied)
 	{
-#if (UNITY_STANDALONE_WIN)		
+#if !UNITY_WSA		
 		TextAsset textRes = Resources.Load(resZipFileName, typeof(TextAsset)) as TextAsset;
 		if(textRes == null || textRes.bytes.Length == 0)
 		{
@@ -2182,7 +2155,7 @@ public class KinectInterop
 	// returns the unzipped file size in bytes, or -1 if the entry is not found in the zip
 	public static long GetUnzippedEntrySize(string resZipFileName, string sEntryName)
 	{
-#if (UNITY_STANDALONE_WIN)
+#if !UNITY_WSA
 		TextAsset textRes = Resources.Load(resZipFileName, typeof(TextAsset)) as TextAsset;
 		if(textRes == null || textRes.bytes.Length == 0)
 		{
@@ -2356,10 +2329,6 @@ public class KinectInterop
 			sensorData.dilateBodyMaterial.SetFloat("_TexResY", (float)sensorData.depthImageHeight);
 			//sensorData.dilateBodyMaterial.SetTexture("_MainTex", sensorData.bodyIndexTexture);
 
-			Shader medianBodyShader = Shader.Find("Custom/Median5x5");
-			sensorData.medianBodyMaterial = new Material(medianBodyShader);
-			sensorData.medianBodyMaterial.SetFloat("_Amount", 1.0f);
-
 			Shader blurBodyShader = Shader.Find("Custom/BlurShader5");
 			sensorData.blurBodyMaterial = new Material(blurBodyShader);
 			//sensorData.blurBodyMaterial.SetFloat("_Amount", 1.5f);
@@ -2442,7 +2411,6 @@ public class KinectInterop
 		
 		sensorData.erodeBodyMaterial = null;
 		sensorData.dilateBodyMaterial = null;
-		sensorData.medianBodyMaterial = null;
 		sensorData.blurBodyMaterial = null;
 
 		if(sensorData.color2DepthBuffer != null)
@@ -2480,12 +2448,6 @@ public class KinectInterop
 				{
 					ApplyErodeDilate(sensorData.alphaBodyTexture, sensorData.alphaBodyTexture, sensorData.erodeBodyMaterial, 
  					                 sensorData.dilateBodyMaterial, sensorData.erodeIterations, sensorData.dilateIterations);
-
-					if (sensorData.applyMedianFilter && sensorData.medianBodyMaterial) 
-					{
-						ApplyMedianFilter(sensorData.alphaBodyTexture, sensorData.alphaBodyTexture, sensorData.medianBodyMaterial);
-					}
-
 					ApplyImageBlur(sensorData.alphaBodyTexture, sensorData.alphaBodyTexture, sensorData.blurBodyMaterial, 1, 0.6f);
 				}
 			}
@@ -2514,12 +2476,6 @@ public class KinectInterop
 			{
 				ApplyErodeDilate(sensorData.bodyIndexTexture, sensorData.alphaBodyTexture, sensorData.erodeBodyMaterial, 
 				                 sensorData.dilateBodyMaterial, sensorData.erodeIterations, sensorData.dilateIterations);
-				
-				if (sensorData.applyMedianFilter && sensorData.medianBodyMaterial) 
-				{
-					ApplyMedianFilter(sensorData.alphaBodyTexture, sensorData.alphaBodyTexture, sensorData.medianBodyMaterial);
-				}
-
 				ApplyImageBlur(sensorData.alphaBodyTexture, sensorData.alphaBodyTexture, sensorData.blurBodyMaterial, 0, 0.6f);
 			}
 
@@ -2576,18 +2532,6 @@ public class KinectInterop
 
 		RenderTexture.ReleaseTemporary(tempTexture[0]);
 		RenderTexture.ReleaseTemporary(tempTexture[1]);
-	}
-
-	private static void ApplyMedianFilter(RenderTexture source, RenderTexture destination, Material medianMaterial)
-	{
-		if(!source || !destination || !medianMaterial)
-			return;
-
-		RenderTexture buffer = RenderTexture.GetTemporary(source.width, source.height, 0);
-		Graphics.Blit(source, buffer, medianMaterial);
-
-		Graphics.Blit(buffer, destination);
-		RenderTexture.ReleaseTemporary(buffer);
 	}
 
 	private static void ApplyImageBlur(RenderTexture source, RenderTexture destination, Material blurMaterial, int blurIterations, float blurSpread)

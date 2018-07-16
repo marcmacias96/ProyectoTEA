@@ -35,17 +35,14 @@ public class AvatarScaler : MonoBehaviour
 	[Tooltip("Scale smoothing factor used in case of continuous scaling.")]
 	public float smoothFactor = 5f;
 
-	[Tooltip("Camera used to overlay the model over the background.")]
+	[Tooltip("Camera that may be used to overlay the model over the background.")]
 	public Camera foregroundCamera;
-
-	[Tooltip("Plane used to render the color camera background to overlay.")]
-	public Transform backgroundPlane;
-
+	
 //	[Tooltip("Whether to put the clothing model hip and shoulder joints where the user joints are.")]
 //	public bool fixModelHipsAndShoulders = false;
 
-	[Tooltip("UI-Text to display the avatar-scaler debug messages.")]
-	public UnityEngine.UI.Text debugText;
+	[Tooltip("GUI-Text to display the avatar-scaler debug messages.")]
+	public GUIText debugText;
 	
 	// used by category selector
 	[System.NonSerialized]
@@ -117,10 +114,6 @@ public class AvatarScaler : MonoBehaviour
 	private float fScaleLeftLowerLeg = 0f;
 	private float fScaleRightUpperLeg = 0f;
 	private float fScaleRightLowerLeg = 0f;
-
-	// background plane rectangle
-	private Rect planeRect = new Rect();
-	private bool planeRectSet = false;
 
 
 	public void Start () 
@@ -223,17 +216,6 @@ public class AvatarScaler : MonoBehaviour
 	{
 		if (scalerInited && kinectManager && kinectManager.IsInitialized()) 
 		{
-			// get the plane rectangle to be used for object overlay
-			if (backgroundPlane && !planeRectSet) 
-			{
-				planeRectSet = true;
-
-				planeRect.width = 10f * Mathf.Abs(backgroundPlane.localScale.x);
-				planeRect.height = 10f * Mathf.Abs(backgroundPlane.localScale.z);
-				planeRect.x = backgroundPlane.position.x - planeRect.width / 2f;
-				planeRect.y = backgroundPlane.position.y - planeRect.height / 2f;
-			}
-
 			long userId = kinectManager.GetUserIdByIndex(playerIndex);
 
 			if (userId != currentUserId) 
@@ -315,12 +297,6 @@ public class AvatarScaler : MonoBehaviour
 			{
 				// recalibrate avatar position due to transform scale change
 				avtController.offsetCalibrated = false;
-
-				// set AC smooth-factor to 0 to prevent flickering (r618-issue)
-				if (avtController.smoothFactor != 0f) 
-				{
-					avtController.smoothFactor = 0f;
-				}
 			}
 		}
 
@@ -663,13 +639,7 @@ public class AvatarScaler : MonoBehaviour
 
 		if(manager.IsJointTracked(currentUserId, joint))
 		{
-			if(backgroundPlane && planeRectSet)
-			{
-				// get the plane overlay position
-				vPosJoint = manager.GetJointPosColorOverlay(currentUserId, joint, planeRect);
-				vPosJoint.z = backgroundPlane.position.z;
-			}	
-			else if(foregroundCamera)
+			if(foregroundCamera)
 			{
 				// get the background rectangle (use the portrait background, if available)
 				Rect backgroundRect = foregroundCamera.pixelRect;
@@ -709,7 +679,7 @@ public class AvatarScaler : MonoBehaviour
 		if(boneScale > 0f)
 		{
 			Vector3 posDiff = (posJoint - posHipCenter) / boneScale;
-			if(foregroundCamera == null && backgroundPlane == null)
+			if(foregroundCamera == null)
 				posDiff.z = 0f;  // ignore difference in z (non-overlay mode)
 
 			Vector3 posJointNew = hipCenter.position + posDiff;

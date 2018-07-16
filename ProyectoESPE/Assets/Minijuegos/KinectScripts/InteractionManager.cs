@@ -98,8 +98,8 @@ public class InteractionManager : MonoBehaviour
 	[Tooltip("List of the interaction listeners in the scene. If the list is empty, the available interaction listeners will be detected at scene start up.")]
 	public List<MonoBehaviour> interactionListeners;
 
-	[Tooltip("UI-Text to display the interaction-manager debug messages.")]
-	public Text debugText;
+	[Tooltip("GUI-Text to display the interaction-manager debug messages.")]
+	public GUIText debugText;
 
 	// tracked userId
 	private long playerUserID = 0;

@@ -10,8 +10,8 @@ public class LoadLevelWhenNoUser : MonoBehaviour
 	[Tooltip("Whether to check for initialized KinectManager or not.")]
 	public bool validateKinectManager = true;
 
-	[Tooltip("UI-Text used to display the debug messages.")]
-	public UnityEngine.UI.Text debugText;
+	[Tooltip("GUI-Text used to display the debug messages.")]
+	public GUIText debugText;
 
 	private bool levelLoaded = false;
 

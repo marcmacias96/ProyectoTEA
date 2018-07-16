@@ -6,23 +6,11 @@ using System.Collections;
 /// </summary>
 public class BackgroundDepthImage : MonoBehaviour 
 {
-	[Tooltip("RawImage used to display the depth image.")]
-	public UnityEngine.UI.RawImage backgroundImage;
+	[Tooltip("GUI-texture used to display the depth image.")]
+	public GUITexture backgroundImage;
 
-	[Tooltip("Camera used to display the background image.")]
+	[Tooltip("Camera that will be used to display the background image.")]
 	public Camera backgroundCamera;
-
-	[Tooltip("Whether to use the texture-2d option of the user image (may lower the performance).")]
-	public bool useTexture2D = false;
-
-
-	void Start()
-	{
-		if (backgroundImage == null) 
-		{
-			backgroundImage = GetComponent<UnityEngine.UI.RawImage>();
-		}
-	}
 
 
 	void Update () 
@@ -33,8 +21,7 @@ public class BackgroundDepthImage : MonoBehaviour
 		{
 			if (backgroundImage && (backgroundImage.texture == null)) 
 			{
-				backgroundImage.texture = !useTexture2D ? manager.GetUsersLblTex() : manager.GetUsersLblTex2D();
-				backgroundImage.color = Color.white;
+				backgroundImage.texture = manager.GetUsersLblTex();
 
 				KinectInterop.SensorData sensorData = manager.GetSensorData();
 				if (sensorData != null && sensorData.sensorInterface != null && backgroundCamera != null) 
@@ -45,8 +32,8 @@ public class BackgroundDepthImage : MonoBehaviour
 
 					// calculate insets
 					Rect cameraRect = backgroundCamera.pixelRect;
-					float rectWidth = cameraRect.width;
 					float rectHeight = cameraRect.height;
+					float rectWidth = cameraRect.width;
 
 					if (rectWidth > rectHeight)
 						rectWidth = rectHeight * depthImageWidth / depthImageHeight;
@@ -56,18 +43,12 @@ public class BackgroundDepthImage : MonoBehaviour
 					float deltaWidth = cameraRect.width - rectWidth;
 					float deltaHeight = cameraRect.height - rectHeight;
 
-//					float leftX = deltaWidth / 2;
-//					float rightX = -deltaWidth;
-//					float bottomY = -deltaHeight / 2;
-//					float topY = deltaHeight;
-//
-//					backgroundImage.pixelInset = new Rect(leftX, bottomY, rightX, topY);
+					float leftX = deltaWidth / 2;
+					float rightX = -deltaWidth;
+					float bottomY = -deltaHeight / 2;
+					float topY = deltaHeight;
 
-					RectTransform rectImage = backgroundImage.GetComponent<RectTransform>();
-					if (rectImage) 
-					{
-						rectImage.sizeDelta = new Vector2(-deltaWidth, -deltaHeight);
-					}
+					backgroundImage.pixelInset = new Rect(leftX, bottomY, rightX, topY);
 				}
 			}
 		}	

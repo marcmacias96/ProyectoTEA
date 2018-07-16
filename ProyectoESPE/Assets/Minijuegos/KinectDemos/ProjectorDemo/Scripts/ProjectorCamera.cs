@@ -4,7 +4,7 @@ using RoomAliveToolkit;
 
 public class ProjectorCamera : MonoBehaviour 
 {
-	[Tooltip("XML file in Resources, containing calibration data.")]
+	[Tooltip("XML file in Resources, containing calibration data. ")]
 	public TextAsset calibrationXml = null;
 
 	[Tooltip("Projector name in the RoomAlive calibration file.")]

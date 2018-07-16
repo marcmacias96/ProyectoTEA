@@ -10,16 +10,16 @@ public class UserHandVisualizer : MonoBehaviour
 	[Tooltip("Whether the mesh is facing the player or not.")]
 	public bool mirroredMovement = true;
 	
-	[Tooltip("Kinect position in the world, used as origin for user movements.")]
+	[Tooltip("Kinect origin position.")]
 	public Vector3 originPosition = Vector3.zero;
 	
-	[Tooltip("Whether the z-movement should be inverted or not.")]
+	[Tooltip("Whether the z-movement is inverted or not.")]
 	public bool invertedZMovement = false;
 	
-	[Tooltip("Smooth factor used for user movements.")]
+	[Tooltip("Smooth factor used for the camera re-orientation.")]
 	public float smoothFactor = 0f;
 	
-	[Tooltip("Camera used to overlay the mesh over the color background.")]
+	[Tooltip("Camera that may be used to overlay the mesh over the color background.")]
 	public Camera foregroundCamera;
 
 	[Tooltip("Whether to update the mesh collider as well, when the user mesh changes.")]
@@ -38,7 +38,6 @@ public class UserHandVisualizer : MonoBehaviour
 
 	private KinectInterop.SensorData sensorData = null;
 	//private Vector3[] spaceCoords = null;
-	private long lastSpaceCoordsTime = 0;
 	private Matrix4x4 kinectToWorld = Matrix4x4.identity;
 
 	private int depthWidth = 0;
@@ -154,8 +153,7 @@ public class UserHandVisualizer : MonoBehaviour
 
 			if(!mirroredMovement)
 			{
-				//userMeshPos.x = -userMeshPos.x;
-				userMeshPos.x = 0f;
+				userMeshPos.x = -userMeshPos.x;
 			}
 
 			if (foregroundCamera == null) 
@@ -192,7 +190,7 @@ public class UserHandVisualizer : MonoBehaviour
     private void UpdateMesh()
     {
 		if(sensorData.depthImage != null && sensorData.bodyIndexImage != null &&
-			sensorData.depth2SpaceCoords != null && lastSpaceCoordsTime != sensorData.lastDepth2SpaceCoordsTime)
+			sensorData.depth2SpaceCoords != null && sensorData.spaceCoordsBufferReady)
 		{
 			int vCount = 0, tCount = 0;
 			EstimateUserVertices(out vCount, out tCount);
@@ -290,12 +288,10 @@ public class UserHandVisualizer : MonoBehaviour
 			}
 
 			// buffer is released
-			lastSpaceCoordsTime = sensorData.lastDepth2SpaceCoordsTime;
-
-//			lock(sensorData.spaceCoordsBufferLock)
-//			{
-//				sensorData.spaceCoordsBufferReady = false;
-//			}
+			lock(sensorData.spaceCoordsBufferLock)
+			{
+				sensorData.spaceCoordsBufferReady = false;
+			}
 
 			mesh.Clear();
 			mesh.vertices = vertices;

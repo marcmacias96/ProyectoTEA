@@ -6,17 +6,8 @@ using System.Collections;
 /// </summary>
 public class BackgroundColorImage : MonoBehaviour 
 {
-	[Tooltip("RawImage used to display the color camera feed.")]
-	public UnityEngine.UI.RawImage backgroundImage;
-
-
-	void Start()
-	{
-		if (backgroundImage == null) 
-		{
-			backgroundImage = GetComponent<UnityEngine.UI.RawImage>();
-		}
-	}
+	[Tooltip("GUI-texture used to display the color camera feed.")]
+	public GUITexture backgroundImage;
 
 
 	void Update () 
@@ -28,7 +19,6 @@ public class BackgroundColorImage : MonoBehaviour
 			if (backgroundImage && (backgroundImage.texture == null)) 
 			{
 				backgroundImage.texture = manager.GetUsersClrTex();
-				backgroundImage.color = Color.white;
 			}
 		}	
 	}

@@ -7,8 +7,8 @@ public class LinePainter : MonoBehaviour
 	[Tooltip("Line renderer used for the line drawing.")]
 	public LineRenderer linePrefab;
 
-	[Tooltip("UI-Text to display information messages.")]
-	public UnityEngine.UI.Text infoText;
+	[Tooltip("GUI-Text to display information messages.")]
+	public GUIText infoText;
 
 
 	private HandOverlayer handOverlayer = null;

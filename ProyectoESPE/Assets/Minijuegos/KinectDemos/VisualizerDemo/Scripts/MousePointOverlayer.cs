@@ -9,11 +9,11 @@ public class MousePointOverlayer : MonoBehaviour
 	[Tooltip("Game object used to overlay the mouse pointed position.")]
 	public Transform overlayObject;
 
-	[Tooltip("Camera used to convert the screen point to world point.")]
+	[Tooltip("Camera that may be used to overlay the mesh over the color background.")]
 	public Camera foregroundCamera;
 
-	[Tooltip("UI-Text used to display information messages.")]
-	public UnityEngine.UI.Text infoText;
+	[Tooltip("GUI-Text used to display information messages.")]
+	public GUIText infoText;
 
 
 	// reference to the singleton instance of KM

@@ -4,14 +4,14 @@ using System.IO;
 
 public class PhotoBoothController : MonoBehaviour, KinectGestures.GestureListenerInterface, InteractionListenerInterface
 {
-//	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
-//	public GUITexture backgroundImage;
+	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
+	public GUITexture backgroundImage;
 
-//	[Tooltip("Camera used to render the background.")]
-//	public Camera backroundCamera;
-//
-//	[Tooltip("Camera used to overlay the 3D-objects over the background.")]
-//	public Camera foreroundCamera;
+	[Tooltip("Camera that will be used to render the background.")]
+	public Camera backroundCamera;
+
+	[Tooltip("Camera that will be used to overlay the 3D-objects over the background.")]
+	public Camera foreroundCamera;
 
 	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 	public int playerIndex = 0;
@@ -34,8 +34,8 @@ public class PhotoBoothController : MonoBehaviour, KinectGestures.GestureListene
 	[Tooltip("Array of sprite transforms that will be used for chest overlays on each step.")]
 	public Transform[] chestMasks;
 
-	[Tooltip("UI-Text used to display information messages.")]
-	public UnityEngine.UI.Text infoText;
+	[Tooltip("GUI-Text used to display information messages.")]
+	public GUIText infoText;
 
 
 	private int maskCount = 0;
@@ -61,12 +61,12 @@ public class PhotoBoothController : MonoBehaviour, KinectGestures.GestureListene
 	{
 		KinectManager manager = KinectManager.Instance;
 
-		if (manager && manager.IsInitialized()) 
+		if (manager && manager.IsInitialized ()) 
 		{
-//			if (backgroundImage && (backgroundImage.texture == null)) 
-//			{
-//				backgroundImage.texture = manager.GetUsersClrTex ();
-//			}
+			if (backgroundImage && (backgroundImage.texture == null)) 
+			{
+				backgroundImage.texture = manager.GetUsersClrTex ();
+			}
 		}
 
 		if (currentIndex != prevIndex) 

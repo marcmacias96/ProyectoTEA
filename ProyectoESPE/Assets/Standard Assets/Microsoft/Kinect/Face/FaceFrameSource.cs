@@ -1,3 +1,4 @@
+#if !(UNITY_WSA_10_0 && NETFX_CORE)
 using RootSystem = System;
 using System.Linq;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Microsoft.Kinect.Face
         private static extern void Microsoft_Kinect_Face_FaceFrameSource_ReleaseObject(ref RootSystem.IntPtr pNative);
         [RootSystem.Runtime.InteropServices.DllImport("KinectFaceUnityAddin", CallingConvention=RootSystem.Runtime.InteropServices.CallingConvention.Cdecl, SetLastError=true)]
         private static extern void Microsoft_Kinect_Face_FaceFrameSource_AddRefObject(ref RootSystem.IntPtr pNative);
-        private void Dispose(bool disposing)
+        public void Dispose(bool disposing)
         {
             if (_pNative == RootSystem.IntPtr.Zero)
             {
@@ -334,3 +335,4 @@ namespace Microsoft.Kinect.Face
     }
 
 }
+#endif

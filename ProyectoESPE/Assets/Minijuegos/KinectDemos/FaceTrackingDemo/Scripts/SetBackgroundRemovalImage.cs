@@ -3,8 +3,8 @@ using System.Collections;
 
 public class SetBackgroundRemovalImage : MonoBehaviour 
 {
-	[Tooltip("RawImage used to display the color camera feed on the scene background.")]
-	public UnityEngine.UI.RawImage backgroundImage;
+	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
+	public GUITexture backgroundImage;
 
 	[Tooltip("Camera that will be set-up to display 3D-models in the Kinect FOV.")]
 	public Camera foregroundCamera;

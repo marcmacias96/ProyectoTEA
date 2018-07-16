@@ -12,7 +12,7 @@ public class ModelSelector : MonoBehaviour
 	public int playerIndex = 0;
 
 	[Tooltip("The model category. Used for model discovery and title of the category menu.")]
-	public string modelCategory = "Clothing";
+	public string modelCategory = "ROPA";
 
 	[Tooltip("Total number of the available clothing models.")]
 	public int numberOfModels = 3;
@@ -62,9 +62,6 @@ public class ModelSelector : MonoBehaviour
 	[Range(-0.5f, 0.5f)]
 	public float forwardOffset = 0f;
 
-	[Tooltip("Whether to apply the humanoid model's muscle limits to the avatar, or not.")]
-	private bool applyMuscleLimits = false;
-
 	[Tooltip("Gender filter of this model selector.")]
 	public UserGender modelGender = UserGender.Unisex;
 
@@ -79,7 +76,7 @@ public class ModelSelector : MonoBehaviour
 	public bool activeSelector = false;
 
 //	[Tooltip("GUI-Text to display the avatar-scaler debug messages.")]
-//	public UnityEngine.UI.Text debugText;
+//	public GUIText debugText;
 
 
 	// Reference to the dresing menu list title
@@ -242,7 +239,7 @@ public class ModelSelector : MonoBehaviour
 
 		// save current scale factors and model offsets
 		curScaleFactor = bodyScaleFactor + bodyWidthFactor + armScaleFactor + legScaleFactor;
-		curModelOffset = verticalOffset + forwardOffset + (applyMuscleLimits ? 1f : 0f);
+		curModelOffset = verticalOffset + forwardOffset;
 	}
 
 	void Update()
@@ -261,18 +258,16 @@ public class ModelSelector : MonoBehaviour
 		if (selModel != null) 
 		{
 			// update model settings as needed
-			float curMuscleLimits = applyMuscleLimits ? 1f : 0f;
-			if (Mathf.Abs(curModelOffset - (verticalOffset + forwardOffset + curMuscleLimits)) >= 0.001f) 
+			if (Mathf.Abs(curModelOffset - (verticalOffset + forwardOffset)) >= 0.001f) 
 			{
 				// update model offsets
-				curModelOffset = verticalOffset + forwardOffset + curMuscleLimits;
+				curModelOffset = verticalOffset + forwardOffset;
 
 				AvatarController ac = selModel.GetComponent<AvatarController>();
 				if (ac != null) 
 				{
 					ac.verticalOffset = verticalOffset;
 					ac.forwardOffset = forwardOffset;
-					ac.applyMuscleLimits = applyMuscleLimits;
 				}
 			}
 
@@ -417,7 +412,6 @@ public class ModelSelector : MonoBehaviour
 
 			ac.mirroredMovement = true;
 			ac.verticalMovement = true;
-			ac.applyMuscleLimits = applyMuscleLimits;
 
 			ac.verticalOffset = verticalOffset;
 			ac.forwardOffset = forwardOffset;

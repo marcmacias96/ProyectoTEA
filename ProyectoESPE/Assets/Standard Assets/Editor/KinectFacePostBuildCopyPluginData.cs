@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if !(UNITY_WSA_10_0 && NETFX_CORE)
+using UnityEditor;
 using UnityEditor.Callbacks;
 using System;
 
@@ -10,3 +11,4 @@ public static class KinectFacePostBuildCopyPluginData
         KinectCopyPluginDataHelper.CopyPluginData (target, path, "NuiDatabase");
     }
 }
+#endif

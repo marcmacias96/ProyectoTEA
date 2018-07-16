@@ -6,14 +6,14 @@ public class HeightEstimator : MonoBehaviour
 //	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 //	public int playerIndex = 0;
 
-//	[Tooltip("GUI-texture used to display the tracked users on scene background.")]
-//	public GUITexture backgroundImage;
+	[Tooltip("GUI-texture used to display the tracked users on scene background.")]
+	public GUITexture backgroundImage;
 
 	[Tooltip("Smoothing factor used for height estimation.")]
 	public float smoothFactor = 5f;
 
-	[Tooltip("UI-Text used to display status messages.")]
-	public UnityEngine.UI.Text statusText;
+	[Tooltip("GUI-Text to display status messages.")]
+	public GUIText statusText;
 
 	[Tooltip("Estimated user-silhouette height, in meters.")]
 	private float userHeight;
@@ -45,14 +45,14 @@ public class HeightEstimator : MonoBehaviour
 
 		if (manager && manager.IsInitialized ()) 
 		{
-//			if(backgroundImage)
-//			{
-//				Vector3 localScale = backgroundImage.transform.localScale;
-//				localScale.x = (float)manager.GetDepthImageWidth() * (float)Screen.height / ((float)manager.GetDepthImageHeight() * (float)Screen.width);
-//				localScale.y = -1f;
-//
-//				backgroundImage.transform.localScale = localScale;
-//			}
+			if(backgroundImage)
+			{
+				Vector3 localScale = backgroundImage.transform.localScale;
+				localScale.x = (float)manager.GetDepthImageWidth() * (float)Screen.height / ((float)manager.GetDepthImageHeight() * (float)Screen.width);
+				localScale.y = -1f;
+
+				backgroundImage.transform.localScale = localScale;
+			}
 		}
 	}
 	
@@ -61,7 +61,7 @@ public class HeightEstimator : MonoBehaviour
 	{
 		if (manager && manager.IsInitialized ()) 
 		{
-			Texture2D depthImage = manager ? manager.GetUsersLblTex2D() : null;
+			Texture2D depthImage = manager ? manager.GetUsersLblTex() : null;
 
 			if (bodySlicer && bodySlicer.getLastFrameTime() != lastFrameTime) 
 			{
@@ -110,10 +110,10 @@ public class HeightEstimator : MonoBehaviour
 				}
 			}
 
-//			if (backgroundImage) 
-//			{
-//				backgroundImage.texture = depthImage;
-//			}
+			if (backgroundImage) 
+			{
+				backgroundImage.texture = depthImage;
+			}
 		}
 	}
 

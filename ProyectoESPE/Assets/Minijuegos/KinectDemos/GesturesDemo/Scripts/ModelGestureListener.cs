@@ -8,8 +8,8 @@ public class ModelGestureListener : MonoBehaviour, KinectGestures.GestureListene
 	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 	public int playerIndex = 0;
 
-	[Tooltip("UI-Text to display gesture-listener messages and gesture information.")]
-	public UnityEngine.UI.Text gestureInfo;
+	[Tooltip("GUI-Text to display gesture-listener messages and gesture information.")]
+	public GUIText gestureInfo;
 
 	// singleton instance of the class
 	private static ModelGestureListener instance = null;

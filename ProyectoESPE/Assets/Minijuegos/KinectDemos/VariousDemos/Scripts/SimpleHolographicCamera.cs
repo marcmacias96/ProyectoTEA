@@ -4,7 +4,10 @@ using System;
 
 /// <summary>
 /// Script that emulates a 3D holographic display based on the viewer position
-/// Courtesy of Davy Loots (Twitter: @davloots)
+/// by Davi Loots (Twitter: @davloots), Start() & Update()-functions added by Rumen Filkov (Twitter: @roumenf)
+/// Usage:
+/// - Attach to a camera.
+/// - Update the HeadPosition each frame either in this or in an external script based on some form of headtracking
 /// - For best effect - and if available - use a stereoscopic display and calculate the head 
 ///   position twice by simply offsetting the HeadPosition .03 to the left and to the right for
 ///   each of the views.
@@ -29,8 +32,8 @@ class SimpleHolographicCamera : MonoBehaviour
 	[Tooltip("Maximum distance from the user to the display wall, in meters.")]
 	public float maxUserDistance = 3f;
 
-	[Tooltip("UI-Text to display status messages.")]
-	public UnityEngine.UI.Text statusText = null;
+	[Tooltip("GUI-Text to display status messages.")]
+	public GUIText statusText = null;
 
 	private float left = -0.2F;
 	private float right = 0.2F;

@@ -197,9 +197,6 @@ public class KinectGestures : MonoBehaviour, GestureManagerInterface
 	/// <param name="manager">The KinectManager instance</param>
 	public virtual int[] GetNeededJointIndexes(KinectManager manager)
 	{
-		if (manager == null)
-			return new int[0];
-		
 		leftHandIndex = manager.GetJointIndex(KinectInterop.JointType.HandLeft);
 		rightHandIndex = manager.GetJointIndex(KinectInterop.JointType.HandRight);
 		

@@ -1,4 +1,4 @@
-﻿#if (UNITY_STANDALONE_WIN)
+﻿#if !(UNITY_WSA_10_0 && NETFX_CORE)
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +16,8 @@ public class GetFacePointsDemo : MonoBehaviour
 	[Tooltip("Transform used to show the selected face point in space.")]
 	public Transform facePointTransform;
 	
-	[Tooltip("UI-Text to display face-information messages.")]
-	public UnityEngine.UI.Text faceInfoText;
+	[Tooltip("GUI-Text to display face-information messages.")]
+	public GUIText faceInfoText;
 
 	private KinectManager manager = null;
 	private FacetrackingManager faceManager = null;

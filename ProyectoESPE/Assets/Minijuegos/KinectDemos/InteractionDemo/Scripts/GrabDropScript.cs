@@ -3,10 +3,6 @@ using System.Collections;
 
 public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 {
-
-	//esto aumente yo pasar a linea 132
-	public string objname="";
-
 	[Tooltip("List of the objects that may be dragged and dropped.")]
 	public GameObject[] draggableObjects;
 
@@ -23,7 +19,7 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 	public float maxZ = 5f;
 
 	// public options (used by the Options GUI)
-	[Tooltip("Whether the objects obey gravity when released, or not. Used by the Options GUI-window.")]
+	[Tooltip("Whether the objects obey gravity when released or not. Used by the Options GUI-window.")]
 	public bool useGravity = true;
 	[Tooltip("Whether the objects should be put in their original positions. Used by the Options GUI-window.")]
 	public bool resetObjects = false;
@@ -31,8 +27,8 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 	[Tooltip("Camera used for screen ray-casting. This is usually the main camera.")]
 	public Camera screenCamera;
 
-	[Tooltip("UI-Text used to display information messages.")]
-	public UnityEngine.UI.Text infoGuiText;
+	[Tooltip("GUI-Text used to display information messages.")]
+	public GUIText infoGuiText;
 
 	[Tooltip("Interaction manager instance, used to detect hand interactions. If left empty, it will be the first interaction manager found in the scene.")]
 	public InteractionManager interactionManager;
@@ -128,13 +124,6 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 						{
 							if(hit.collider.gameObject == obj)
 							{
-
-								//esto aumente yo
-								//print(hit.collider.gameObject.name);
-								objname=hit.collider.gameObject.name;
-
-
-
 								// an object was hit by the ray. select it and start drgging
 								draggedObject = obj;
 								draggedObjectOffset = hit.point - draggedObject.transform.position;

@@ -11,7 +11,7 @@ public class BallController : MonoBehaviour
 	[Tooltip("The ball game object.")]
 	public Transform ballObject;
 
-	[Tooltip("Minimum movement distance, used to consider the ball being thrown.")]
+	[Tooltip("Minimum distance used to consider the ball being thrown.")]
 	public float minThrowDistance = 0.3f;
 
 	[Tooltip("Maximum time in seconds, used to consider the ball being thrown.")]
@@ -20,8 +20,8 @@ public class BallController : MonoBehaviour
 	[Tooltip("Velocity scale.")]
 	public float velocityScale = 5f;
 	
-	[Tooltip("UI-Text to display information messages.")]
-	public UnityEngine.UI.Text infoText;
+	[Tooltip("GUI-Text to display information messages.")]
+	public GUIText infoText;
 
 	public enum BallState : int { Hidden, HandRaise, BallThrow, BallWait }
 	[Tooltip("Current state of the ball.")]
@@ -30,7 +30,7 @@ public class BallController : MonoBehaviour
 //	public Transform ballP1;
 //	public Transform ballP2;
 
-	//public UnityEngine.UI.Text debugText;
+	//public GUIText debugText;
 
 	private KinectManager manager;
 	private Quaternion initialRotation = Quaternion.identity;

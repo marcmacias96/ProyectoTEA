@@ -1,5 +1,4 @@
-﻿#if (UNITY_STANDALONE_WIN)
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -1040,4 +1039,3 @@ public class OpenNI2Interface : DepthSensorInterface
 	}
 	
 }
-#endif

@@ -1,4 +1,4 @@
-#if (UNITY_STANDALONE_WIN)
+#if !(UNITY_WSA_10_0 && NETFX_CORE)
 using UnityEngine;
 using System.Collections;
 using Windows.Kinect;
@@ -64,12 +64,12 @@ public class Kinect2Interface : DepthSensorInterface
 	[DllImport("Kinect2SpeechWrapper", EntryPoint = "LoadSpeechGrammar")]
 	private static extern int LoadSpeechGrammarNative([MarshalAs(UnmanagedType.LPWStr)]string sFileName, short iNewLangCode, bool bDynamic);
 
-	[DllImport("Kinect2SpeechWrapper", EntryPoint = "AddSpeechGrammar")]
-	private static extern int AddSpeechGrammarNative([MarshalAs(UnmanagedType.LPWStr)]string sFileName, short iNewLangCode, bool bDynamic);
-
 	[DllImport("Kinect2SpeechWrapper", EntryPoint = "AddGrammarPhrase")]
 	private static extern int AddGrammarPhraseNative([MarshalAs(UnmanagedType.LPWStr)]string sFromRule, [MarshalAs(UnmanagedType.LPWStr)]string sToRule, [MarshalAs(UnmanagedType.LPWStr)]string sPhrase, bool bClearRule, bool bCommitGrammar);
 
+	[DllImport("Kinect2SpeechWrapper", EntryPoint = "AddSpeechGrammar")]
+	private static extern int AddSpeechGrammarNative([MarshalAs(UnmanagedType.LPWStr)]string sFileName, short iNewLangCode, bool bDynamic);
+	
 	[DllImport("Kinect2SpeechWrapper", EntryPoint = "AddPhraseToGrammar")]
 	private static extern int AddPhraseToGrammarNative([MarshalAs(UnmanagedType.LPWStr)]string sGrammarName, [MarshalAs(UnmanagedType.LPWStr)]string sFromRule, [MarshalAs(UnmanagedType.LPWStr)]string sToRule, [MarshalAs(UnmanagedType.LPWStr)]string sPhrase, bool bClearRule, bool bCommitGrammar);
 	
@@ -333,12 +333,6 @@ public class Kinect2Interface : DepthSensorInterface
 
 		float fWaitTime = Time.realtimeSinceStartup + 3f;
 		while(!kinectSensor.IsAvailable && Time.realtimeSinceStartup < fWaitTime)
-		{
-			// wait for sensor to be available
-		}
-
-		//fWaitTime = Time.realtimeSinceStartup + 3f;
-		while(!kinectSensor.IsOpen && Time.realtimeSinceStartup < fWaitTime)
 		{
 			// wait for sensor to open
 		}

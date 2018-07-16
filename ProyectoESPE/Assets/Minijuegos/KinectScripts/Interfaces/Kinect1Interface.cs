@@ -1,4 +1,3 @@
-#if (UNITY_STANDALONE_WIN)
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -1800,4 +1799,3 @@ public class Kinect1Interface : DepthSensorInterface
 	}
 
 }
-#endif

@@ -18,7 +18,7 @@ public class PoseDetectorScript : MonoBehaviour
 	public float matchThreshold = 0.7f;
 
 	[Tooltip("GUI-Text to display information messages.")]
-	public UnityEngine.UI.Text infoText;
+	public GUIText infoText;
 
 	// match percent (between 0 and 1)
 	private float fMatchPercent = 0f;

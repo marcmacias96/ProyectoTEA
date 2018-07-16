@@ -5,14 +5,14 @@ using System.Collections;
 
 public class HandOverlayer : MonoBehaviour 
 {
+	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
+	public GUITexture backgroundImage;
+
 	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 	public int playerIndex = 0;
 
-	[Tooltip("Whether the player's left hand should be tracked, or the right hand.")]
+	[Tooltip("Whether the player is left handed or not.")]
 	public bool isLeftHanded = false;
-
-//	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
-//	public GUITexture backgroundImage;
 
 	[Tooltip("Hand-cursor texture for the hand-grip state.")]
 	public Texture gripHandTexture;
@@ -59,11 +59,11 @@ public class HandOverlayer : MonoBehaviour
 		KinectManager manager = KinectManager.Instance;
 		if(manager && manager.IsInitialized())
 		{
-//			//backgroundImage.renderer.material.mainTexture = manager.GetUsersClrTex();
-//			if(backgroundImage && (backgroundImage.texture == null))
-//			{
-//				backgroundImage.texture = manager.GetUsersClrTex();
-//			}
+			//backgroundImage.renderer.material.mainTexture = manager.GetUsersClrTex();
+			if(backgroundImage && (backgroundImage.texture == null))
+			{
+				backgroundImage.texture = manager.GetUsersClrTex();
+			}
 
 			// overlay the joint
 			int iJointIndex = !isLeftHanded ? (int)KinectInterop.JointType.HandRight : (int)KinectInterop.JointType.HandLeft;

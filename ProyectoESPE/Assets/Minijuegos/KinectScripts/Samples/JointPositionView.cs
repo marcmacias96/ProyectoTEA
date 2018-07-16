@@ -28,8 +28,8 @@ public class JointPositionView : MonoBehaviour
 	[Tooltip("Smooth factor used for the joint position smoothing.")]
 	public float smoothFactor = 5f;
 
-	[Tooltip("UI-Text to display the current joint position.")]
-	public UnityEngine.UI.Text debugText;
+	[Tooltip("GUI-Text to display the current joint position.")]
+	public GUIText debugText;
 
 
 	private Vector3 initialPosition = Vector3.zero;

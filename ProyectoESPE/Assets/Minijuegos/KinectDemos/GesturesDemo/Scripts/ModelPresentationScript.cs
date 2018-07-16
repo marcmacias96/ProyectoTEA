@@ -7,7 +7,7 @@ public class ModelPresentationScript : MonoBehaviour
 	[Tooltip("Camera used for screen-to-world calculations. This is usually the main camera.")]
 	public Camera screenCamera;
 
-	[Tooltip("Speed of rotation, when the presentation model spins.")]
+	[Tooltip("Speed of spinning, when presentation slides change.")]
 	public float spinSpeed = 10;
 
 	// reference to the gesture listener

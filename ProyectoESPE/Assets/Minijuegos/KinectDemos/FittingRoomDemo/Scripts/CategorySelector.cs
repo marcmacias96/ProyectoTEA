@@ -19,7 +19,7 @@ public class CategorySelector : MonoBehaviour, KinectGestures.GestureListenerInt
 //	public bool fixModelHipsAndShoulders = false;
 
 	[Tooltip("GUI-Text used to display information messages.")]
-	public UnityEngine.UI.Text infoText;
+	public GUIText infoText;
 
 
 	// available model selectors

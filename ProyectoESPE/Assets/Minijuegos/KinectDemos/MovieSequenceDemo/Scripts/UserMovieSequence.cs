@@ -9,20 +9,20 @@ class UserMovieSequence : MonoBehaviour
 	[Tooltip("How far left or right from the camera may be the user, in meters.")]
 	public float limitLeftRight = 1.2f;
 
-	[Tooltip("RawImage to display the movie frames.")]
-	public UnityEngine.UI.RawImage movieGuiTexture = null;
+	[Tooltip("GUI texture to display the movie frames.")]
+	public GUITexture movieGuiTexture = null;
 
-	[Tooltip("List of frames in the movie sequence.")]
+	[Tooltip("Seuqence of frames in the movie (left to right).")]
 	public Texture[] frameTextures = null;
 
 	[Tooltip("Smooth factor used for frame interpolation.")]
 	public float smoothFactor = 10f;
 
-	[Tooltip("Current frame number (as estimated).")]
+	[Tooltip("Current frame number.")]
 	public int currentFrame = 0;
 
-	[Tooltip("UI-Text to display status messages.")]
-	public UnityEngine.UI.Text statusText = null;
+	[Tooltip("GUI-Text to display status messages.")]
+	public GUIText statusText = null;
 
 
 	private KinectManager kinectManager;
@@ -76,7 +76,6 @@ class UserMovieSequence : MonoBehaviour
 				if (movieGuiTexture) 
 				{
 					movieGuiTexture.texture = tex;
-					movieGuiTexture.color = Color.white;
 				}
 			}
 

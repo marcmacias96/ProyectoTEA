@@ -5,8 +5,7 @@ Shader "Custom/UserBlendShader"
 	Properties
 	{
 		_MainTex ("MainTex", 2D) = "white" {}
-		_BackTex ("BackTex", 2D) = "white" {}
-        _ColorTex ("ColorTex", 2D) = "white" {}
+        _ColorTex ("Color (RGB)", 2D) = "white" {}
         _Threshold ("Depth Threshold", Range(0, 0.5)) = 0.1
 	}
 
@@ -32,7 +31,6 @@ Shader "Custom/UserBlendShader"
 			uniform float4 _MainTex_TexelSize;
 			sampler2D _CameraDepthTexture;
 
-			uniform sampler2D _BackTex;
 			uniform sampler2D _ColorTex;
 			uniform float _Threshold;
 
@@ -87,9 +85,6 @@ Shader "Custom/UserBlendShader"
                     ctUv.y = 1.0 - ctUv.y;
                 }
 #endif
-
-				// for non-flipped textures
-				float2 ctUv2 = float2(ctUv.x, 1.0 - ctUv.y);
 				
 				int cx = (int)(ctUv.x * _ColorResX);
 				int cy = (int)(ctUv.y * _ColorResY);
@@ -116,30 +111,14 @@ Shader "Custom/UserBlendShader"
 						else
 						{
 							//return half4(i.uv.x, i.uv.y, 0, 1);
-							half4 clrBack = tex2D(_BackTex, ctUv2);
-							half4 clrFront = tex2D(_ColorTex, ctUv);
-							half3 clrBlend = clrBack.rgb * (1.0 - clrFront.a) + clrFront.rgb * clrFront.a;
-
-							return half4(clrBlend, 1.0);
+							return tex2D(_ColorTex, ctUv);
 						}
 					}
 				}
 				else
 				{
 					//return half4(i.uv.x, i.uv.y, 0, 1);
-					if(camDepth > 0.1 && camDepth < 10.0)
-					{
-						return tex2D(_MainTex, i.uv);
-					}
-					else
-					{
-						//return tex2D(_ColorTex, ctUv);
-						half4 clrBack = tex2D(_BackTex, ctUv2);
-						half4 clrFront = tex2D(_ColorTex, ctUv);
-						half3 clrBlend = clrBack.rgb * (1.0 - clrFront.a) + clrFront.rgb * clrFront.a;
-
-						return half4(clrBlend, 1.0);
-					} 
+					return camDepth > 0.1 && camDepth < 10.0 ? tex2D(_MainTex, i.uv) : tex2D(_ColorTex, ctUv);
 				}
 			}
 

@@ -16,11 +16,8 @@ public class HandObjectChecker : MonoBehaviour
 	[Tooltip("Minimum fill ratio of the tracked depth area, to be considered as a valid object.")]
 	public float fillThreshold = 0.5f;
 
-	[Tooltip("Whether to draw the hand-status rectangles.")]
-	public bool drawHandRectangles = false;
-
-	[Tooltip("UI-Text to display status messages.")]
-	public UnityEngine.UI.Text statusText;
+	[Tooltip("GUI-Text to display status messages.")]
+	public GUIText statusText;
 
 	private long trackedUserId;
 	private byte userBodyIndex;
@@ -83,27 +80,24 @@ public class HandObjectChecker : MonoBehaviour
 //			CalculateObjectSize(dposHandLeft, rectObjectHandLeft, depthMinMaxHL, ref sizeObjectHandLeft);
 //			CalculateObjectSize(dposHandRight, rectObjectHandRight, depthMinMaxHR, ref sizeObjectHandRight);
 
-			if (drawHandRectangles) 
+			Texture2D texDepth = manager.GetUsersLblTex();
+
+			bool bRectDrawn = false;
+			if (rectObjectHandLeft.width != 0f && rectObjectHandLeft.height != 0f && dposHandLeft != Vector2.zero) 
 			{
-				Texture2D texDepth = manager.GetUsersLblTex2D();
+				KinectInterop.DrawRect(texDepth, rectObjectHandLeft, fillRatioLeftHand > fillThreshold ? Color.green : Color.yellow);
+				bRectDrawn = true;
+			}
 
-				bool bRectDrawn = false;
-				if (rectObjectHandLeft.width != 0f && rectObjectHandLeft.height != 0f && dposHandLeft != Vector2.zero) 
-				{
-					KinectInterop.DrawRect(texDepth, rectObjectHandLeft, fillRatioLeftHand > fillThreshold ? Color.green : Color.yellow);
-					bRectDrawn = true;
-				}
+			if (rectObjectHandRight.width != 0f && rectObjectHandRight.height != 0f && dposHandRight != Vector2.zero) 
+			{
+				KinectInterop.DrawRect(texDepth, rectObjectHandRight, fillRatioRightHand > fillThreshold ? Color.green : Color.yellow);
+				bRectDrawn = true;
+			}
 
-				if (rectObjectHandRight.width != 0f && rectObjectHandRight.height != 0f && dposHandRight != Vector2.zero) 
-				{
-					KinectInterop.DrawRect(texDepth, rectObjectHandRight, fillRatioRightHand > fillThreshold ? Color.green : Color.yellow);
-					bRectDrawn = true;
-				}
-
-				if (bRectDrawn) 
-				{
-					texDepth.Apply();
-				}
+			if (bRectDrawn) 
+			{
+				texDepth.Apply();
 			}
 
 			StringBuilder sbStatusText = new StringBuilder();

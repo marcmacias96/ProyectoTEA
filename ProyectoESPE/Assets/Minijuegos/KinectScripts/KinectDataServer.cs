@@ -28,14 +28,14 @@ public class KinectDataServer : MonoBehaviour
 	[Tooltip("Transform representing this sensor's position and rotation in world space. If missing, the sensor height and angle settings from KinectManager-component are used.")]
 	public Transform sensorTransform;
 
-	[Tooltip("RawImage used to display the tracked users on scene background.")]
-	public RawImage backgroundImage;
+	[Tooltip("GUI-texture used to display the tracked users on scene background.")]
+	public GUITexture backgroundImage;
 
-	[Tooltip("UI-Text to display connection status messages.")]
-	public Text connStatusText;
+	[Tooltip("GUI-Text to display connection status messages.")]
+	public GUIText connStatusText;
 
-	[Tooltip("UI-Text to display server status messages.")]
-	public Text serverStatusText;
+	[Tooltip("GUI-Text to display server status messages.")]
+	public GUIText serverStatusText;
 
 	[Tooltip("UI-Text to display server console.")]
 	public Text consoleMessages;
@@ -273,7 +273,7 @@ public class KinectDataServer : MonoBehaviour
 			// set broadcast data
 			string sBroadcastData = string.Empty;
 
-#if (UNITY_STANDALONE_WIN)
+#if !UNITY_WSA
 			try 
 			{
 				string strHostName = System.Net.Dns.GetHostName();
@@ -372,7 +372,6 @@ public class KinectDataServer : MonoBehaviour
 				localScale.y = -1f;
 
 				backgroundImage.transform.localScale = localScale;
-				backgroundImage.color = Color.white;
 			}
 		}
 

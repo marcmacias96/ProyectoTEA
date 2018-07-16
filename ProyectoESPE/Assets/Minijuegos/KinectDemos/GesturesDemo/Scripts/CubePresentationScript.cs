@@ -7,11 +7,11 @@ public class CubePresentationScript : MonoBehaviour
 	[Tooltip("Camera used for screen-to-world calculations. This is usually the main camera.")]
 	public Camera screenCamera;
 
-	[Tooltip("Whether the presentation slides may be changed with gestures (SwipeLeft, SwipeRight & SwipeUp).")]
+	[Tooltip("Whether the presentation slides can be changed with gestures (SwipeLeft & SwipeRight).")]
 	public bool slideChangeWithGestures = true;
-	[Tooltip("Whether the presentation slides may be changed with keys (PgDown & PgUp).")]
+	[Tooltip("Whether the presentation slides can be changed with keys (PgDown & PgUp).")]
 	public bool slideChangeWithKeys = true;
-	[Tooltip("Speed of rotation, when the presentation cube spins.")]
+	[Tooltip("Speed of spinning, when presentation slides change.")]
 	public int spinSpeed = 5;
 
 	[Tooltip("List of the presentation slides.")]

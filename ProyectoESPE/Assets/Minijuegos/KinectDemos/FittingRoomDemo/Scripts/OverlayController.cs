@@ -3,14 +3,11 @@ using System.Collections;
 
 public class OverlayController : MonoBehaviour 
 {
-//	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
-//	public GUITexture backgroundImage;
+	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
+	public GUITexture backgroundImage;
 
-	[Tooltip("Camera used to display the 1st scene background.")]
+	[Tooltip("Camera used to display the background image from the Kinect point of view.")]
 	public Camera backgroundCamera;
-
-	[Tooltip("Camera used to display the 2nd scene background (users).")]
-	public Camera backgroundCamera2;
 
 	[Tooltip("Camera used to display the clothing models from the Kinect point of view.")]
 	public Camera foregroundCamera;
@@ -48,12 +45,6 @@ public class OverlayController : MonoBehaviour
 				backgroundCamera.transform.position = new Vector3(0f, manager.sensorHeight, 0f);
 				backgroundCamera.transform.rotation = Quaternion.Euler(-manager.sensorAngle, 0f, 0f);
 			}
-
-			if(backgroundCamera2 != null && sensorData != null && sensorData.sensorInterface != null)
-			{
-				backgroundCamera2.transform.position = new Vector3(0f, manager.sensorHeight, 0f);
-				backgroundCamera2.transform.rotation = Quaternion.Euler(-manager.sensorAngle, 0f, 0f);
-			}
 		}
 	}
 
@@ -85,21 +76,16 @@ public class OverlayController : MonoBehaviour
 					backgroundCamera.transform.rotation = Quaternion.Euler(-manager.sensorAngle, 0f, 0f);
 				}
 				
-				if(backgroundCamera2 != null && sensorData != null)
-				{
-					backgroundCamera2.transform.position = new Vector3(0f, manager.sensorHeight, 0f);
-					backgroundCamera2.transform.rotation = Quaternion.Euler(-manager.sensorAngle, 0f, 0f);
-				}
 			}
 			
-//			if(backgroundImage)
-//			{
-//				if(backgroundImage.texture == null)
-//				{
-//					backgroundImage.texture = manager.GetUsersClrTex();
-//					//backgroundImage.texture = BackgroundRemovalManager.Instance.GetForegroundTex();
-//				}
-//			}
+			if(backgroundImage)
+			{
+				if(backgroundImage.texture == null)
+				{
+					backgroundImage.texture = manager.GetUsersClrTex();
+					//backgroundImage.texture = BackgroundRemovalManager.Instance.GetForegroundTex();
+				}
+			}
 		}
 
 	}

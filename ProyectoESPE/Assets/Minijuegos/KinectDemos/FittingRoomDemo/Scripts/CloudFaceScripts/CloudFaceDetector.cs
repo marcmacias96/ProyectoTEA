@@ -24,8 +24,8 @@ public class CloudFaceDetector : MonoBehaviour
 	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 	public int playerIndex = 0;
 
-	[Tooltip("UI-text used for information messages.")]
-	public UnityEngine.UI.Text infoText;
+	[Tooltip("GUI-text used for information messages.")]
+	public GUIText infoText;
 
 	[HideInInspector]
 	public string userGender;  // detected user gender
@@ -150,11 +150,9 @@ public class CloudFaceDetector : MonoBehaviour
 				userAge = face.faceAttributes.age;
 				userSmile = face.faceAttributes.smile;
 
-				string sMessage = string.Format("{0}, Age: {1:F1}", userGender.ToUpper(), userAge);
-				Debug.Log(string.Format("CloudFaceDetector found " + sMessage));
-
 				if(infoText != null)
 				{
+					string sMessage = string.Format("{0}, Age: {1:F1}", userGender.ToUpper(), userAge);
 					infoText.text = sMessage;
 				}
 

@@ -8,18 +8,11 @@ public class UserBodyBlender : MonoBehaviour
 	[Range(-0.5f, 0.5f)]
 	public float depthThreshold = 0.1f;
 
-	[Tooltip("RawImage used to display the scene background.")]
-	public UnityEngine.UI.RawImage backgroundImage;
-
-	[Tooltip("Camera used to render the 1st scene background. This background camera gets disabled, when this component is enabled.")]
-	public Camera backrgoundCamera;
-
-	[Tooltip("Camera used to render the 2nd scene background (users). This background camera gets disabled, when this component is enabled.")]
-	public Camera backgroundCamera2;
+	[Tooltip("Camera used to render the scene background. The background camera gets disabled, when this component is enabled.")]
+	public Camera backroundCamera;
 
 	private Material userBlendMat;
 	private KinectManager kinectManager;
-	private BackgroundRemovalManager backManager;
 	private long lastDepthFrameTime;
 
 	private Vector2[] color2DepthCoords;
@@ -56,15 +49,10 @@ public class UserBodyBlender : MonoBehaviour
 			thisCamera.clearFlags = CameraClearFlags.SolidColor;
 		}
 
-		// disable the background cameras
-		if (backrgoundCamera) 
+		// disable the background camera
+		if (backroundCamera) 
 		{
-			backrgoundCamera.gameObject.SetActive(false);
-		}
-
-		if (backgroundCamera2) 
-		{
-			backgroundCamera2.gameObject.SetActive(false);
+			backroundCamera.gameObject.SetActive(false);
 		}
 	}
 
@@ -78,15 +66,10 @@ public class UserBodyBlender : MonoBehaviour
 			thisCamera.clearFlags = CameraClearFlags.Depth;
 		}
 
-		// enable the background cameras
-		if (backrgoundCamera) 
+		// enable the background camera
+		if (backroundCamera) 
 		{
-			backrgoundCamera.gameObject.SetActive(true);
-		}
-
-		if (backgroundCamera2) 
-		{
-			backgroundCamera2.gameObject.SetActive(true);
+			backroundCamera.gameObject.SetActive(true);
 		}
 	}
 
@@ -94,7 +77,6 @@ public class UserBodyBlender : MonoBehaviour
 	void Start () 
 	{
 		kinectManager = KinectManager.Instance;
-		backManager = BackgroundRemovalManager.Instance;
 
 		if(kinectManager && kinectManager.IsInitialized() &&
 			kinectManager.GetSensorData().sensorIntPlatform == KinectInterop.DepthSensorPlatform.KinectSDKv2)
@@ -124,15 +106,7 @@ public class UserBodyBlender : MonoBehaviour
 				depthImageBuffer = new ComputeBuffer(sensorData.depthImage.Length, sizeof(float));
 				userBlendMat.SetBuffer("_DepthBuffer", depthImageBuffer);
 
-				if (backgroundImage) 
-				{
-					userBlendMat.SetTexture("_BackTex", backgroundImage.texture);
-				}
-
-				// color camera texture
 				//userBlendMat.SetTexture("_ColorTex", sensorData.colorImageTexture);
-//				Texture colorTex = backManager && sensorData.color2DepthTexture ? (Texture)sensorData.color2DepthTexture : (Texture)sensorData.colorImageTexture;
-//				userBlendMat.SetTexture("_ColorTex", colorTex);
 			}
 		}
 		else
@@ -212,8 +186,7 @@ public class UserBodyBlender : MonoBehaviour
 				depthImageBuffer.SetData(depthImageBufferData);
 
 				// color camera texture
-				Texture colorTex = backManager && sensorData.color2DepthTexture ? (Texture)sensorData.color2DepthTexture : (Texture)sensorData.colorImageTexture;
-				userBlendMat.SetTexture("_ColorTex", colorTex);
+				userBlendMat.SetTexture("_ColorTex", sensorData.colorImageTexture);
 			}
 		}
 	}

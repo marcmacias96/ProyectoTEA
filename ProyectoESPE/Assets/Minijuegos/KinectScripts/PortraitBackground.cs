@@ -10,7 +10,6 @@ public class PortraitBackground : MonoBehaviour
 	private bool useDepthImageResolution = false;
 
 	private bool isInitialized = false;
-	private Rect pixelInsetRect;
 	private Rect backgroundRect;
 	private Rect inScreenRect;
 	private Rect shaderUvRect;
@@ -108,23 +107,15 @@ public class PortraitBackground : MonoBehaviour
 			float fScreenWidth = (float)Screen.height * fFactorSW;
 			float fAbsOffsetX = fDeltaWidth / 2f;
 
-			pixelInsetRect = new Rect(dOffsetX, 0, fDeltaWidth, 0);
-			backgroundRect = new Rect(dOffsetX, 0, fScreenWidth, Screen.height);
-
-			inScreenRect = new Rect(fAbsOffsetX, 0, fScreenWidth - fDeltaWidth, Screen.height);
-			shaderUvRect = new Rect(fAbsOffsetX / fScreenWidth, 0, (fScreenWidth - fDeltaWidth) / fScreenWidth, 1);
-
 			GUITexture guiTexture = GetComponent<GUITexture>();
 			if(guiTexture)
 			{
-				guiTexture.pixelInset = pixelInsetRect;
+				guiTexture.pixelInset = new Rect(dOffsetX, 0, fDeltaWidth, 0);
 			}
 
-			UnityEngine.UI.RawImage rawImage = GetComponent<UnityEngine.UI.RawImage>();
-			if(rawImage)
-			{
-				rawImage.uvRect = shaderUvRect;
-			}
+			backgroundRect = new Rect(dOffsetX, 0, fScreenWidth, Screen.height);
+			inScreenRect = new Rect(fAbsOffsetX, 0, fScreenWidth - fDeltaWidth, Screen.height);
+			shaderUvRect = new Rect(fAbsOffsetX / fScreenWidth, 0, (fScreenWidth - fDeltaWidth) / fScreenWidth, 1);
 
 			isInitialized = true;
 		}

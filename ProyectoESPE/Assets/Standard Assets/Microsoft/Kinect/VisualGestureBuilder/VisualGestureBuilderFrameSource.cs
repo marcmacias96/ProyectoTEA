@@ -1,3 +1,4 @@
+#if !(UNITY_WSA_10_0 && NETFX_CORE)
 using RootSystem = System;
 using System.Linq;
 using System.Collections.Generic;
@@ -325,7 +326,8 @@ namespace Microsoft.Kinect.VisualGestureBuilder
                 throw new RootSystem.ObjectDisposedException("VisualGestureBuilderFrameSource");
             }
 
-            Microsoft_Kinect_VisualGestureBuilder_VisualGestureBuilderFrameSource_AddGesture(_pNative, Helper.NativeWrapper.GetNativePtr(gesture));
+			RootSystem.IntPtr ptrGesture = Helper.NativeWrapper.GetNativePtr(gesture);
+			Microsoft_Kinect_VisualGestureBuilder_VisualGestureBuilderFrameSource_AddGesture(_pNative, ptrGesture);
             Helper.ExceptionHelper.CheckLastError();
         }
 
@@ -447,3 +449,4 @@ namespace Microsoft.Kinect.VisualGestureBuilder
     }
 
 }
+#endif

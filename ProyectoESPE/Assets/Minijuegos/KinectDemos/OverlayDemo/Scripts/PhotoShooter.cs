@@ -6,20 +6,17 @@ using System;
 
 public class PhotoShooter : MonoBehaviour
 {
-	[Tooltip("Camera used to render the background.")]
+	[Tooltip("Camera that will be used to render the background.")]
 	public Camera backroundCamera;
 
-	[Tooltip("Camera used to render the background layer-2.")]
-	public Camera backroundCamera2;
-
-	[Tooltip("Camera used to overlay the 3D-objects over the background.")]
+	[Tooltip("Camera that will be used to overlay the 3D-objects over the background.")]
 	public Camera foreroundCamera;
 
 	[Tooltip("Array of sprite transforms that will be used for displaying the countdown until image shot.")]
 	public Transform[] countdown;
 
-	[Tooltip("UI-Text used to display information messages.")]
-	public UnityEngine.UI.Text infoText;
+	[Tooltip("GUI-Text used to display information messages.")]
+	public GUIText infoText;
 
 
 	/// <summary>
@@ -88,13 +85,6 @@ public class PhotoShooter : MonoBehaviour
 			backroundCamera.targetTexture = null;
 		}
 
-		if (backroundCamera2 && backroundCamera2.enabled) 
-		{
-			backroundCamera2.targetTexture = rt;
-			backroundCamera2.Render();
-			backroundCamera2.targetTexture = null;
-		}
-
 		if (foreroundCamera && foreroundCamera.enabled) 
 		{
 			foreroundCamera.targetTexture = rt;
@@ -143,10 +133,10 @@ public class PhotoShooter : MonoBehaviour
         string sFileName = string.Format("{0:F0}", Time.realtimeSinceStartup * 10f) + ".jpg";
         string sFileUrl = string.Empty; // "ms-appdata:///local/" + sFileName;
 
-		UnityEngine.WSA.Application.InvokeOnUIThread(() =>
-		{
-        	task = SaveImageFileAsync(sFileName, btScreenShot, openIt);
-		}, true);
+//						UnityEngine.WSA.Application.InvokeOnUIThread(() =>
+//						{
+        task = SaveImageFileAsync(sFileName, btScreenShot, openIt);
+//						}, true);
 
         while (task != null && !task.IsCompleted && !task.IsFaulted)
         {

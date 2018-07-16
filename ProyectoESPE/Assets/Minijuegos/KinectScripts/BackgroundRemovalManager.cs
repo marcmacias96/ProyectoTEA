@@ -36,11 +36,8 @@ public class BackgroundRemovalManager : MonoBehaviour
 	[Range(0, 9)]
 	public int dilateIterations = 0; // 3;
 
-	[Tooltip("(Advanced) Whether to apply the median filter.")]
-	public bool applyMedianFilter = false;
-
-	[Tooltip("UI-Text to display the BR-Manager debug messages.")]
-	public UnityEngine.UI.Text debugText;
+	[Tooltip("GUI-Text to display the BR-Manager debug messages.")]
+	public GUIText debugText;
 
 	// buffer for the raw foreground image
 	private byte[] foregroundImage;
@@ -141,7 +138,7 @@ public class BackgroundRemovalManager : MonoBehaviour
 		instance = this;
 	}
 
-	public void Start() 
+	void Start() 
 	{
 		try 
 		{
@@ -291,7 +288,6 @@ public class BackgroundRemovalManager : MonoBehaviour
 			// erode & dilate iterations
 			sensorData.erodeIterations = erodeIterations;
 			sensorData.dilateIterations = dilateIterations;
-			sensorData.applyMedianFilter = applyMedianFilter;
 
 			// update the background removal
 			bool bSuccess = sensorData.sensorInterface.UpdateBackgroundRemoval(sensorData, colorCameraResolution, defaultColor, computeBodyTexOnly);

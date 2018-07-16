@@ -13,7 +13,7 @@ public class SceneMeshVisualizer : MonoBehaviour
 	[Tooltip("Maximum left and right distance from the sensor, in meters.")]
 	public float maxLeftRight = 2f;
 	
-	[Tooltip("Whether to include the detected players to the scene mesh or not.")]
+	[Tooltip("Whether to include players to the scene mesh or not.")]
 	public bool includePlayers = false;
 
 	[Tooltip("Time interval between scene mesh updates, in seconds.")]
@@ -25,7 +25,7 @@ public class SceneMeshVisualizer : MonoBehaviour
 	[Tooltip("Whether the mesh is facing the player or not.")]
 	private bool mirroredScene = true;
 	
-	[Tooltip("Camera used to overlay the mesh over the color background.")]
+	[Tooltip("Camera that may be used to overlay the mesh over the color background.")]
 	public Camera foregroundCamera;
 
 	[Tooltip("Whether to update the mesh collider as well, when the user mesh changes.")]
@@ -44,7 +44,6 @@ public class SceneMeshVisualizer : MonoBehaviour
 
 	private KinectInterop.SensorData sensorData = null;
 	//private Vector3[] spaceCoords = null;
-	private long lastSpaceCoordsTime = 0;
 	private Matrix4x4 kinectToWorld = Matrix4x4.identity;
 
 	private float lastMeshUpdateTime = 0f;
@@ -146,7 +145,7 @@ public class SceneMeshVisualizer : MonoBehaviour
     private void UpdateMesh()
     {
 		if(sensorData.depthImage != null && sensorData.depth2ColorCoords != null && 
-			sensorData.depth2SpaceCoords != null && lastSpaceCoordsTime != sensorData.lastDepth2SpaceCoordsTime)
+			sensorData.depth2SpaceCoords != null && sensorData.spaceCoordsBufferReady)
 		{
 			if ((Time.time - lastMeshUpdateTime) >= updateMeshInterval &&
 				(!updateWhenNoPlayers || !manager.IsUserDetected())) 
@@ -249,14 +248,6 @@ public class SceneMeshVisualizer : MonoBehaviour
 					xyIndex = xyStartIndex + sampleSize * depthWidth;
 				}
 
-				// buffer is released
-				lastSpaceCoordsTime = sensorData.lastDepth2SpaceCoordsTime;
-
-//				lock(sensorData.spaceCoordsBufferLock)
-//				{
-//					sensorData.spaceCoordsBufferReady = false;
-//				}
-
 				// update the mesh
 				mesh.Clear();
 				mesh.vertices = vertices;
@@ -279,6 +270,12 @@ public class SceneMeshVisualizer : MonoBehaviour
 
 				// save update time
 				lastMeshUpdateTime = Time.time;
+			}
+
+			// buffer is released
+			lock(sensorData.spaceCoordsBufferLock)
+			{
+				sensorData.spaceCoordsBufferReady = false;
 			}
 		}
     }

@@ -290,7 +290,7 @@ public class BodySlicer : MonoBehaviour
 			// display body slices
 			if(displayBodySlices)
 			{
-				depthImage = manager.GetUsersLblTex2D();
+				depthImage = manager.GetUsersLblTex();
 
 				if(depthImage)
 				{

@@ -149,17 +149,8 @@ public class SetFaceTexture : MonoBehaviour
 
 			if(faceX < 0) faceX = 0;
 			if(faceY < 0) faceY = 0;
-
-			if (foregroundTex) 
-			{
-				if((faceX + faceW) > foregroundTex.width) faceW = foregroundTex.width - faceX;
-				if((faceY + faceH) > foregroundTex.height) faceH = foregroundTex.height - faceY;
-			} 
-			else if (colorTex) 
-			{
-				if((faceX + faceW) > colorTex.width) faceW = colorTex.width - faceX;
-				if((faceY + faceH) > colorTex.height) faceH = colorTex.height - faceY;
-			}
+			if((faceX + faceW) > colorTex.width) faceW = colorTex.width - faceX;
+			if((faceY + faceH) > colorTex.height) faceH = colorTex.height - faceY;
 
 			if(faceTex.width != faceW || faceTex.height != faceH)
 			{

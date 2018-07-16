@@ -1,4 +1,4 @@
-﻿#if (UNITY_STANDALONE_WIN)
+﻿#if !(UNITY_WSA_10_0 && NETFX_CORE)
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -12,8 +12,8 @@ using KinectAudioSource = Windows.Kinect.AudioSource;
 
 public class KinectAudioTracker : MonoBehaviour
 {
-	[Tooltip("UI-Text to display status messages.")]
-	public UnityEngine.UI.Text statusText;
+	[Tooltip("GUI-Text to display status messages.")]
+	public GUIText statusText;
 
 	[Tooltip("Last observed audio beam angle in radians, in the range [-pi/2, +pi/2]")]
 	[NonSerialized]

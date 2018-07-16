@@ -12,15 +12,11 @@ public class InteractionInputModule : PointerInputModule, InteractionListenerInt
 	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
 	public int playerIndex = 0;
 
-	[Tooltip("Whether to process the hand cursor movements (i.e for hovering ui-elements), or not.")]
-	public bool processCursorMovement = false;
-
 
 	//private bool m_isLeftHand = false;
 	private bool m_leftHandGrip = false;
 	private bool m_rightHandGrip = false;
-	private Vector3 m_handCursorPos = Vector3.zero;
-	private Vector2 m_lastCursorPos = Vector2.zero;
+	private Vector3 m_screenNormalPos = Vector3.zero;
 
 	private PointerEventData.FramePressState m_framePressState = PointerEventData.FramePressState.NotChanged;
 	private readonly MouseState m_MouseState = new MouseState();
@@ -71,28 +67,8 @@ public class InteractionInputModule : PointerInputModule, InteractionListenerInt
         if (!base.ShouldActivateModule())
             return false;
 
-		if (intManager == null) 
-		{
-			intManager = GetInteractionManager();
-		}
-
 		//bool shouldActivate |= (InteractionManager.Instance != null && InteractionManager.Instance.IsInteractionInited());
-		bool shouldActivate = m_ForceModuleActive || (m_framePressState != PointerEventData.FramePressState.NotChanged);
-
-		if (!shouldActivate && processCursorMovement && intManager &&
-			(intManager.IsLeftHandPrimary() || intManager.IsRightHandPrimary())) 
-		{
-			bool bIsLeftHand = intManager.IsLeftHandPrimary();
-
-			// check for cursor pos change
-			Vector2 handCursorPos = bIsLeftHand ? intManager.GetLeftHandScreenPos() : intManager.GetRightHandScreenPos();
-
-			if (handCursorPos != m_lastCursorPos) 
-			{
-				m_lastCursorPos = handCursorPos;
-				shouldActivate = true;
-			}
-		}
+        bool shouldActivate = m_ForceModuleActive || (m_framePressState != PointerEventData.FramePressState.NotChanged);
 
         return shouldActivate;
     }
@@ -157,17 +133,13 @@ public class InteractionInputModule : PointerInputModule, InteractionListenerInt
 			bool bHandGrip = bIsLeftHand ? m_leftHandGrip : m_rightHandGrip;
 
 			// check for cursor pos change
-			Vector2 handCursorPos = bIsLeftHand ? intManager.GetLeftHandScreenPos() : intManager.GetRightHandScreenPos();
+			Vector2 cursorNormalPos = bIsLeftHand ? intManager.GetLeftHandScreenPos() : intManager.GetRightHandScreenPos();
 
-			if (bHandGrip && handCursorPos != (Vector2)m_handCursorPos) 
+			if (bHandGrip && cursorNormalPos != (Vector2)m_screenNormalPos) 
 			{
 				// emulate new press
 				m_framePressState = PointerEventData.FramePressState.Pressed;
-				m_handCursorPos = handCursorPos;
-			}
-			else if(processCursorMovement)
-			{
-				m_handCursorPos = handCursorPos;
+				m_screenNormalPos = cursorNormalPos;
 			}
 		}
 	}
@@ -192,7 +164,7 @@ public class InteractionInputModule : PointerInputModule, InteractionListenerInt
 
 		leftData.Reset();
 
-		Vector2 handPos = new Vector2(m_handCursorPos.x * Screen.width, m_handCursorPos.y * Screen.height);
+		Vector2 handPos = new Vector2(m_screenNormalPos.x * Screen.width, m_screenNormalPos.y * Screen.height);
 
 		if (created) 
 		{
@@ -326,7 +298,7 @@ public class InteractionInputModule : PointerInputModule, InteractionListenerInt
 
 		m_framePressState = PointerEventData.FramePressState.Pressed;
 		//m_isLeftHand = !isRightHand;
-		m_handCursorPos = handScreenPos;
+		m_screenNormalPos = handScreenPos;
 
 		if (!isRightHand)
 			m_leftHandGrip = true;
@@ -343,7 +315,7 @@ public class InteractionInputModule : PointerInputModule, InteractionListenerInt
 
 		m_framePressState = PointerEventData.FramePressState.Released;
 		//m_isLeftHand = !isRightHand;
-		m_handCursorPos = handScreenPos;
+		m_screenNormalPos = handScreenPos;
 
 		if (!isRightHand)
 			m_leftHandGrip = false;
@@ -367,13 +339,13 @@ public class InteractionInputModule : PointerInputModule, InteractionListenerInt
 	{
 		m_framePressState = PointerEventData.FramePressState.Pressed;
 		//m_isLeftHand = !isRightHand;
-		m_handCursorPos = handScreenPos;
+		m_screenNormalPos = handScreenPos;
 
 		yield return new WaitForSeconds(0.2f);
 
 		m_framePressState = PointerEventData.FramePressState.Released;
 		//m_isLeftHand = !isRightHand;
-		m_handCursorPos = handScreenPos;
+		m_screenNormalPos = handScreenPos;
 
 		yield return null;
 	}

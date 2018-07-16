@@ -6,14 +6,14 @@ public class GrabRotateScript : MonoBehaviour, InteractionListenerInterface
 	[Tooltip("Material used to outline the object when selected.")]
 	public Material selectedObjectMaterial;
 
-	[Tooltip("Smooth factor used for object rotation.")]
+	[Tooltip("Smooth factor used for object rotations.")]
 	public float smoothFactor = 3.0f;
 
 	[Tooltip("Camera used for screen ray-casting. This is usually the main camera.")]
 	public Camera screenCamera;
 
-	[Tooltip("UI-Text used to display information messages.")]
-	public UnityEngine.UI.Text infoGuiText;
+	[Tooltip("GUI-Text used to display information messages.")]
+	public GUIText infoGuiText;
 
 	[Tooltip("Interaction manager instance, used to detect hand interactions. If left empty, it will be the first interaction manager found in the scene.")]
 	public InteractionManager interactionManager;

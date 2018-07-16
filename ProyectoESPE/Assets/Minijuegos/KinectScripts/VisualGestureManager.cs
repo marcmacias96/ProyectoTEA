@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-#if (UNITY_STANDALONE_WIN)
+#if !(UNITY_WSA_10_0 && NETFX_CORE)
 using Microsoft.Kinect.VisualGestureBuilder;
 using Windows.Kinect;
 #endif
@@ -72,8 +72,8 @@ public class VisualGestureManager : MonoBehaviour
 	[Tooltip("List of the visual gesture listeners in the scene. If the list is empty, the available gesture listeners will be detected at the scene start up.")]
 	public List<MonoBehaviour> visualGestureListeners;
 	
-	[Tooltip("UI-Text to display the VG-manager debug messages.")]
-	public UnityEngine.UI.Text debugText;
+	[Tooltip("GUI-Text to display the VG-manager debug messages.")]
+	public GUIText debugText;
 
 
 	// primary user ID, as reported by KinectManager
@@ -82,7 +82,7 @@ public class VisualGestureManager : MonoBehaviour
 	// gesture data holders for each tracked gesture
 	private Dictionary<string, VisualGestureData> gestureData = new Dictionary<string, VisualGestureData>();
 
-#if (UNITY_STANDALONE_WIN)
+#if !(UNITY_WSA_10_0 && NETFX_CORE)
 
 	// gesture frame source which should be tied to a body tracking ID
 	private VisualGestureBuilderFrameSource vgbFrameSource = null;
@@ -414,7 +414,7 @@ public class VisualGestureManager : MonoBehaviour
 		instance = this;
 	}
 
-#if (UNITY_STANDALONE_WIN)
+#if !(UNITY_WSA_10_0 && NETFX_CORE)
 
 	void Start() 
 	{

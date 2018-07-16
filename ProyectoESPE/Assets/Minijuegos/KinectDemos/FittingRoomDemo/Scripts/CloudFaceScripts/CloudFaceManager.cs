@@ -100,7 +100,7 @@ public class CloudFaceManager : MonoBehaviour
 		headers.Add("ocp-apim-subscription-key", faceSubscriptionKey);
 		
 		headers.Add("Content-Type", "application/octet-stream");
-		//headers.Add("Content-Length", imageBytes.Length.ToString());
+		headers.Add("Content-Length", imageBytes.Length.ToString());
 
 		WWW www = new WWW(requestUrl, imageBytes, headers);
 		yield return www;
