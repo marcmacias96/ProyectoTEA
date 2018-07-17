@@ -5,11 +5,14 @@ public class EggMover : MonoBehaviour
 {
     void Awake()
     {
-        //GetComponent<Rigidbody>().AddForce(new Vector3(0, -10f, 0), ForceMode.Force);
+        //rigidbody.AddForce(new Vector3(0, -100f, 0), ForceMode.Force);
     }
 
 	void Update () 
 	{
+//        float fallSpeed = 2 * Time.deltaTime;
+//        transform.position -= new Vector3(0, fallSpeed, 0);
+
         if (transform.position.y < -10)
         {
             Destroy(gameObject);

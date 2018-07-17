@@ -35,11 +35,11 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 	public UnityEngine.UI.Text infoGuiText;
 
 	[Tooltip("Interaction manager instance, used to detect hand interactions. If left empty, it will be the first interaction manager found in the scene.")]
-	public InteractionManager interactionManager;
+	public UnityEngine.XR.WSA.Input.InteractionManager interactionManager;
 
 	// hand interaction variables
 	//private bool isLeftHandDrag = false;
-	private InteractionManager.HandEventType lastHandEvent = InteractionManager.HandEventType.None;
+	private UnityEngine.XR.WSA.Input.InteractionManager.HandEventType lastHandEvent = UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.None;
 
 	// currently dragged object and its parameters
 	private GameObject draggedObject;
@@ -92,7 +92,7 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 		// get the interaction manager instance
 		if(interactionManager == null)
 		{
-			interactionManager = InteractionManager.Instance;
+			interactionManager = UnityEngine.XR.WSA.Input.InteractionManager.Instance;
 		}
 	}
 
@@ -111,7 +111,7 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 			if(draggedObject == null)
 			{
 				// check if there is an underlying object to be selected
-				if(lastHandEvent == InteractionManager.HandEventType.Grip && screenNormalPos != Vector3.zero)
+				if(lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip && screenNormalPos != Vector3.zero)
 				{
 					// convert the normalized screen pos to pixel pos
 					screenNormalPos = interactionManager.IsLeftHandPrimary() ? interactionManager.GetLeftHandScreenPos() : interactionManager.GetRightHandScreenPos();
@@ -172,7 +172,7 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 				draggedObject.transform.position = Vector3.Lerp(draggedObject.transform.position, newObjectPos, dragSpeed * Time.deltaTime);
 				
 				// check if the object (hand grip) was released
-				bool isReleased = lastHandEvent == InteractionManager.HandEventType.Release;
+				bool isReleased = lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Release;
 
 				if(isReleased)
 				{
@@ -246,7 +246,7 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 		if (userId != interactionManager.GetUserID())
 			return;
 
-		lastHandEvent = InteractionManager.HandEventType.Grip;
+		lastHandEvent = UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip;
 		//isLeftHandDrag = !isRightHand;
 		screenNormalPos = handScreenPos;
 	}
@@ -258,7 +258,7 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 		if (userId != interactionManager.GetUserID())
 			return;
 
-		lastHandEvent = InteractionManager.HandEventType.Release;
+		lastHandEvent = UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Release;
 		//isLeftHandDrag = !isRightHand;
 		screenNormalPos = handScreenPos;
 	}

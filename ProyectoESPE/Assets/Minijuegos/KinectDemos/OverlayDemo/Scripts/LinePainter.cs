@@ -41,7 +41,7 @@ public class LinePainter : MonoBehaviour
 
 		
 		if(currentLine == null &&
-		   (handOverlayer && (handOverlayer.GetLastHandEvent() == InteractionManager.HandEventType.Grip)))
+		   (handOverlayer && (handOverlayer.GetLastHandEvent() == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip)))
 		{
 			// start drawing lines
 			currentLine = Instantiate(linePrefab).GetComponent<LineRenderer>();
@@ -62,7 +62,7 @@ public class LinePainter : MonoBehaviour
 		}
 		
 		if (currentLine != null &&
-		    (handOverlayer != null && (handOverlayer.GetLastHandEvent() == InteractionManager.HandEventType.Release)))
+		    (handOverlayer != null && (handOverlayer.GetLastHandEvent() == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Release)))
 		{
 			// end drawing lines
 			currentLine = null;
@@ -84,7 +84,7 @@ public class LinePainter : MonoBehaviour
 	// continue drawing line
 	IEnumerator DrawLine()
 	{
-		while(handOverlayer && (handOverlayer.GetLastHandEvent() == InteractionManager.HandEventType.Grip))
+		while(handOverlayer && (handOverlayer.GetLastHandEvent() == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip))
 		{
 			yield return new WaitForEndOfFrame();
 
