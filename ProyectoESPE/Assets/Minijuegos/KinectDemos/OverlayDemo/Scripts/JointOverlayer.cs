@@ -1,86 +1,114 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
+using System;
+//using Windows.Kinect;
 
-public class KinectOverlayer : MonoBehaviour 
+
+public class JointOverlayer : MonoBehaviour 
 {
-//	public Vector3 TopLeft;
-//	public Vector3 TopRight;
-//	public Vector3 BottomRight;
-//	public Vector3 BottomLeft;
+//	[Tooltip("GUI-texture used to display the color camera feed on the scene background.")]
+//	public GUITexture backgroundImage;
 
-	public GUITexture backgroundImage;
-	public KinectWrapper.NuiSkeletonPositionIndex TrackedJoint = KinectWrapper.NuiSkeletonPositionIndex.HandRight;
-	public GameObject OverlayObject;
-	public float smoothFactor = 5f;
+	[Tooltip("Camera that will be used to overlay the 3D-objects over the background.")]
+	public Camera foregroundCamera;
 	
-	public GUIText debugText;
+	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
+	public int playerIndex = 0;
+	
+	[Tooltip("Kinect joint that is going to be overlayed.")]
+	public KinectInterop.JointType trackedJoint = KinectInterop.JointType.HandRight;
 
-	private float distanceToCamera = 10f;
+	[Tooltip("Game object used to overlay the joint.")]
+	public Transform overlayObject;
 
+	[Tooltip("Smoothing factor used for joint rotation.")]
+	public float smoothFactor = 10f;
 
-	void Start()
+	//public UnityEngine.UI.Text debugText;
+
+	[NonSerialized]
+	public Quaternion initialRotation = Quaternion.identity;
+	private bool objFlipped = false;
+
+	
+	public void Start()
 	{
-		if(OverlayObject)
+		if (!foregroundCamera) 
 		{
-			distanceToCamera = (OverlayObject.transform.position - Camera.main.transform.position).magnitude;
+			// by default - the main camera
+			foregroundCamera = Camera.main;
+		}
+
+		if(overlayObject)
+		{
+			// always mirrored
+			initialRotation = overlayObject.rotation; // Quaternion.Euler(new Vector3(0f, 180f, 0f));
+
+			Vector3 vForward = foregroundCamera ? foregroundCamera.transform.forward : Vector3.forward;
+			objFlipped = (Vector3.Dot(overlayObject.forward, vForward) < 0);
+
+			overlayObject.rotation = Quaternion.identity;
 		}
 	}
 	
-	void Update() 
+	void Update () 
 	{
 		KinectManager manager = KinectManager.Instance;
 		
-		if(manager && manager.IsInitialized())
+		if(manager && manager.IsInitialized() && foregroundCamera)
 		{
-			//backgroundImage.renderer.material.mainTexture = manager.GetUsersClrTex();
-			if(backgroundImage && (backgroundImage.texture == null))
+//			//backgroundImage.renderer.material.mainTexture = manager.GetUsersClrTex();
+//			if(backgroundImage && (backgroundImage.texture == null))
+//			{
+//				backgroundImage.texture = manager.GetUsersClrTex();
+//			}
+			
+			// get the background rectangle (use the portrait background, if available)
+			Rect backgroundRect = foregroundCamera.pixelRect;
+			PortraitBackground portraitBack = PortraitBackground.Instance;
+			
+			if(portraitBack && portraitBack.enabled)
 			{
-				backgroundImage.texture = manager.GetUsersClrTex();
+				backgroundRect = portraitBack.GetBackgroundRect();
 			}
+
+			// overlay the joint
+			long userId = manager.GetUserIdByIndex(playerIndex);
 			
-//			Vector3 vRight = BottomRight - BottomLeft;
-//			Vector3 vUp = TopLeft - BottomLeft;
-			
-			int iJointIndex = (int)TrackedJoint;
-			
-			if(manager.IsUserDetected())
+			int iJointIndex = (int)trackedJoint;
+			if (manager.IsJointTracked (userId, iJointIndex)) 
 			{
-				uint userId = manager.GetPlayer1ID();
-				
-				if(manager.IsJointTracked(userId, iJointIndex))
+				Vector3 posJoint = manager.GetJointPosColorOverlay(userId, iJointIndex, foregroundCamera, backgroundRect);
+
+				if (posJoint != Vector3.zero) 
 				{
-					Vector3 posJoint = manager.GetRawSkeletonJointPos(userId, iJointIndex);
+//					if(debugText)
+//					{
+//						debugText.text = string.Format("{0} - {1}", trackedJoint, posJoint);
+//					}
 
-					if(posJoint != Vector3.zero)
+					if (overlayObject) 
 					{
-						// 3d position to depth
-						Vector2 posDepth = manager.GetDepthMapPosForJointPos(posJoint);
-						
-						// depth pos to color pos
-						Vector2 posColor = manager.GetColorMapPosForDepthPos(posDepth);
-						
-						float scaleX = (float)posColor.x / KinectWrapper.Constants.ColorImageWidth;
-						float scaleY = 1.0f - (float)posColor.y / KinectWrapper.Constants.ColorImageHeight;
-						
-//						Vector3 localPos = new Vector3(scaleX * 10f - 5f, 0f, scaleY * 10f - 5f); // 5f is 1/2 of 10f - size of the plane
-//						Vector3 vPosOverlay = backgroundImage.transform.TransformPoint(localPos);
-						//Vector3 vPosOverlay = BottomLeft + ((vRight * scaleX) + (vUp * scaleY));
+						overlayObject.position = posJoint;
 
-						if(debugText)
-						{
-							debugText.GetComponent<GUIText>().text = "Tracked user ID: " + userId;  // new Vector2(scaleX, scaleY).ToString();
-						}
-						
-						if(OverlayObject)
-						{
-							Vector3 vPosOverlay = Camera.main.ViewportToWorldPoint(new Vector3(scaleX, scaleY, distanceToCamera));
-							OverlayObject.transform.position = Vector3.Lerp(OverlayObject.transform.position, vPosOverlay, smoothFactor * Time.deltaTime);
-						}
+						Quaternion rotJoint = manager.GetJointOrientation (userId, iJointIndex, !objFlipped);
+						rotJoint = initialRotation * rotJoint;
+
+						overlayObject.rotation = Quaternion.Slerp (overlayObject.rotation, rotJoint, smoothFactor * Time.deltaTime);
 					}
 				}
-				
+			} 
+			else 
+			{
+				// make the overlay object invisible
+				if (overlayObject && overlayObject.position.z > 0f) 
+				{
+					Vector3 posJoint = overlayObject.position;
+					posJoint.z = -10f;
+					overlayObject.position = posJoint;
+				}
 			}
-			
+				
 		}
 	}
 }

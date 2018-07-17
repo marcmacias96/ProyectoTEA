@@ -3,6 +3,10 @@ using System.Collections;
 
 public class EggSpawner : MonoBehaviour 
 {
+	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
+	public int playerIndex = 0;
+
+	[Tooltip("Prefab (model and components) used to instantiate eggs in the scene.")]
     public Transform eggPrefab;
 
     private float nextEggTime = 0.0f;
@@ -23,13 +27,13 @@ public class EggSpawner : MonoBehaviour
     {
 		KinectManager manager = KinectManager.Instance;
 
-		if(eggPrefab && manager && manager.IsInitialized() && manager.IsUserDetected())
+		if(eggPrefab && manager && manager.IsInitialized() && manager.IsUserDetected(playerIndex))
 		{
-			uint userId = manager.GetPlayer1ID();
+			long userId = manager.GetUserIdByIndex(playerIndex);
 			Vector3 posUser = manager.GetUserPosition(userId);
 
-			float addXPos = Random.Range(-10f, 10f);
-			Vector3 spawnPos = new Vector3(addXPos, 10f, posUser.z);
+			float addXPos = Random.Range(-2f, 2f);
+			Vector3 spawnPos = new Vector3(addXPos, 5f, posUser.z - 0.1f);
 			
 			Transform eggTransform = Instantiate(eggPrefab, spawnPos, Quaternion.identity) as Transform;
 			eggTransform.parent = transform;

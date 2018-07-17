@@ -28,7 +28,7 @@ public class HandOverlayer : MonoBehaviour
 	private Vector2 cursorPos = Vector2.zero;
 
 	// last hand event (grip or release)
-	private UnityEngine.XR.WSA.Input.InteractionManager.HandEventType lastHandEvent = UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.None;
+	private InteractionManager.HandEventType lastHandEvent = InteractionManager.HandEventType.None;
 
 
 	/// <summary>
@@ -45,7 +45,7 @@ public class HandOverlayer : MonoBehaviour
 	/// Gets the last hand event of the active hand (right or left).
 	/// </summary>
 	/// <returns>The last hand event.</returns>
-	public UnityEngine.XR.WSA.Input.InteractionManager.HandEventType GetLastHandEvent()
+	public InteractionManager.HandEventType GetLastHandEvent()
 	{
 		return lastHandEvent;
 	}
@@ -116,7 +116,7 @@ public class HandOverlayer : MonoBehaviour
 
 	void OnGUI()
 	{
-		UnityEngine.XR.WSA.Input.InteractionManager intManager = UnityEngine.XR.WSA.Input.InteractionManager.Instance;
+		InteractionManager intManager = InteractionManager.Instance;
 		Texture texture = null;
 
 		if(intManager && intManager.IsInteractionInited())
@@ -125,18 +125,18 @@ public class HandOverlayer : MonoBehaviour
 			{
 				lastHandEvent = intManager.GetLastLeftHandEvent();
 
-				if(lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip)
+				if(lastHandEvent == InteractionManager.HandEventType.Grip)
 					texture = gripHandTexture;
-				else if(lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Release)
+				else if(lastHandEvent == InteractionManager.HandEventType.Release)
 					texture = releaseHandTexture;
 			}
 			else
 			{
 				lastHandEvent = intManager.GetLastRightHandEvent();
 
-				if(lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip)
+				if(lastHandEvent == InteractionManager.HandEventType.Grip)
 					texture = gripHandTexture;
-				else if(lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Release)
+				else if(lastHandEvent == InteractionManager.HandEventType.Release)
 					texture = releaseHandTexture;
 			}
 		}

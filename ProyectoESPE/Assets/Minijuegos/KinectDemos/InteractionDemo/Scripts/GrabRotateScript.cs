@@ -16,11 +16,11 @@ public class GrabRotateScript : MonoBehaviour, InteractionListenerInterface
 	public UnityEngine.UI.Text infoGuiText;
 
 	[Tooltip("Interaction manager instance, used to detect hand interactions. If left empty, it will be the first interaction manager found in the scene.")]
-	public UnityEngine.XR.WSA.Input.InteractionManager interactionManager;
+	public InteractionManager interactionManager;
 
 
 	//private bool isLeftHandDrag = false;
-	private UnityEngine.XR.WSA.Input.InteractionManager.HandEventType lastHandEvent = UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.None;
+	private InteractionManager.HandEventType lastHandEvent = InteractionManager.HandEventType.None;
 	private Vector3 screenNormalPos = Vector3.zero;
 
 	private GameObject selectedObject;
@@ -38,7 +38,7 @@ public class GrabRotateScript : MonoBehaviour, InteractionListenerInterface
 		// get the interaction manager instance
 		if (interactionManager == null) 
 		{
-			interactionManager = UnityEngine.XR.WSA.Input.InteractionManager.Instance;
+			interactionManager = InteractionManager.Instance;
 		}
 	}
 
@@ -53,7 +53,7 @@ public class GrabRotateScript : MonoBehaviour, InteractionListenerInterface
 			{
 				// no object is currently selected or dragged.
 				// check if there is an underlying object to be selected
-				if(lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip && screenNormalPos != Vector3.zero)
+				if(lastHandEvent == InteractionManager.HandEventType.Grip && screenNormalPos != Vector3.zero)
 				{
 					// convert the normalized screen pos to pixel pos
 					screenNormalPos = interactionManager.IsLeftHandPrimary() ? interactionManager.GetLeftHandScreenPos() : interactionManager.GetRightHandScreenPos();
@@ -90,7 +90,7 @@ public class GrabRotateScript : MonoBehaviour, InteractionListenerInterface
 				selectedObject.transform.rotation = Quaternion.Slerp(selectedObject.transform.rotation, qObjectRotation, smoothFactor * Time.deltaTime);
 
 				// check if the object (hand grip) was released
-				bool isReleased = lastHandEvent == UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Release;
+				bool isReleased = lastHandEvent == InteractionManager.HandEventType.Release;
 
 				if(isReleased)
 				{
@@ -145,7 +145,7 @@ public class GrabRotateScript : MonoBehaviour, InteractionListenerInterface
 		if (userId != interactionManager.GetUserID())
 			return;
 
-		lastHandEvent = UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Grip;
+		lastHandEvent = InteractionManager.HandEventType.Grip;
 		//isLeftHandDrag = !isRightHand;
 		screenNormalPos = handScreenPos;
 	}
@@ -157,7 +157,7 @@ public class GrabRotateScript : MonoBehaviour, InteractionListenerInterface
 		if (userId != interactionManager.GetUserID())
 			return;
 
-		lastHandEvent = UnityEngine.XR.WSA.Input.InteractionManager.HandEventType.Release;
+		lastHandEvent = InteractionManager.HandEventType.Release;
 		//isLeftHandDrag = !isRightHand;
 		screenNormalPos = handScreenPos;
 	}

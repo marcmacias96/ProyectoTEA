@@ -3,93 +3,153 @@ using System.Collections;
 
 public class DepthImageViewer : MonoBehaviour 
 {
+	[Tooltip("Index of the player, tracked by this component. 0 means the 1st player, 1 - the 2nd one, 2 - the 3rd one, etc.")]
+	public int playerIndex = 0;
+	
+	[Tooltip("Camera used to estimate the overlay positions of 3D-objects over the background. By default it is the main camera.")]
+	public Camera foregroundCamera;
+	
+	// radius of the created capsule colliders
+	private const float colliderRadius = 0.3f;
+
 	// the KinectManager instance
 	private KinectManager manager;
 
 	// the foreground texture
-	private Texture2D foregroundTex;
+	private Texture foregroundTex;
 	
 	// rectangle taken by the foreground texture (in pixels)
-	private Rect foregroundRect;
-	private Vector2 foregroundOfs;
+	private Rect foregroundGuiRect;
+	private Rect foregroundImgRect;
 
 	// game objects to contain the joint colliders
 	private GameObject[] jointColliders = null;
+	private int numColliders = 0;
+
+	private int depthImageWidth;
+	private int depthImageHeight;
 	
 
 	void Start () 
 	{
-		// calculate the foreground rectangle
-		Rect cameraRect = Camera.main.pixelRect;
-		float rectHeight = cameraRect.height;
-		float rectWidth = cameraRect.width;
-		
-		if(rectWidth > rectHeight)
-			rectWidth = rectHeight * KinectWrapper.Constants.DepthImageWidth / KinectWrapper.Constants.DepthImageHeight;
-		else
-			rectHeight = rectWidth * KinectWrapper.Constants.DepthImageHeight / KinectWrapper.Constants.DepthImageWidth;
-
-		foregroundOfs = new Vector2((cameraRect.width - rectWidth) / 2, (cameraRect.height - rectHeight) / 2);
-		foregroundRect = new Rect(foregroundOfs.x, cameraRect.height - foregroundOfs.y, rectWidth, -rectHeight);
-	
-		// create joint colliders
-		int numColliders = (int)KinectWrapper.NuiSkeletonPositionIndex.Count;
-		jointColliders = new GameObject[numColliders];
-		
-		for(int i = 0; i < numColliders; i++)
+		if (foregroundCamera == null) 
 		{
-			string sColObjectName = ((KinectWrapper.NuiSkeletonPositionIndex)i).ToString() + "Collider";
-			jointColliders[i] = new GameObject(sColObjectName);
-			jointColliders[i].transform.parent = transform;
-			
-			SphereCollider collider = jointColliders[i].AddComponent<SphereCollider>();
-			collider.radius = 1f;
+			// by default use the main camera
+			foregroundCamera = Camera.main;
 		}
+
+		manager = KinectManager.Instance;
+		if(manager && manager.IsInitialized())
+		{
+			KinectInterop.SensorData sensorData = manager.GetSensorData();
+
+			if(sensorData != null && sensorData.sensorInterface != null && foregroundCamera != null)
+			{
+				// get depth image size
+				depthImageWidth = sensorData.depthImageWidth;
+				depthImageHeight = sensorData.depthImageHeight;
+
+				// calculate the foreground rectangles
+				Rect cameraRect = foregroundCamera.pixelRect;
+				float rectHeight = cameraRect.height;
+				float rectWidth = cameraRect.width;
+				
+				if(rectWidth > rectHeight)
+					rectWidth = rectHeight * depthImageWidth / depthImageHeight;
+				else
+					rectHeight = rectWidth * depthImageHeight / depthImageWidth;
+				
+				float foregroundOfsX = (cameraRect.width - rectWidth) / 2;
+				float foregroundOfsY = (cameraRect.height - rectHeight) / 2;
+				foregroundImgRect = new Rect(foregroundOfsX, foregroundOfsY, rectWidth, rectHeight);
+				foregroundGuiRect = new Rect(foregroundOfsX, cameraRect.height - foregroundOfsY, rectWidth, -rectHeight);
+				
+				// create joint colliders
+				numColliders = sensorData.jointCount;
+				jointColliders = new GameObject[numColliders];
+				
+				for(int i = 0; i < numColliders; i++)
+				{
+					string sColObjectName = ((KinectInterop.JointType)i).ToString() + "Collider";
+					jointColliders[i] = new GameObject(sColObjectName);
+					jointColliders[i].transform.parent = transform;
+					
+					if (i == 0) 
+					{
+						// sphere collider for body center
+						SphereCollider collider = jointColliders[i].AddComponent<SphereCollider>();
+						collider.radius = colliderRadius;
+					} 
+					else 
+					{
+						// capsule collider for bones
+						CapsuleCollider collider = jointColliders[i].AddComponent<CapsuleCollider>();
+						collider.radius = colliderRadius;
+					}
+				}
+			}
+		}
+
 	}
 	
 	void Update () 
 	{
-		if(manager == null)
-		{
-			manager = KinectManager.Instance;
-		}
-
 		// get the users texture
 		if(manager && manager.IsInitialized())
 		{
 			foregroundTex = manager.GetUsersLblTex();
 		}
 
-		if(manager.IsUserDetected())
+		if(manager && manager.IsUserDetected(playerIndex) && foregroundCamera)
 		{
-			uint userId = manager.GetPlayer1ID();
+			long userId = manager.GetUserIdByIndex(playerIndex);  // manager.GetPrimaryUserID();
 
 			// update colliders
-			int numColliders = (int)KinectWrapper.NuiSkeletonPositionIndex.Count;
-			
 			for(int i = 0; i < numColliders; i++)
 			{
+				bool bActive = false;
+
 				if(manager.IsJointTracked(userId, i))
 				{
-					Vector3 posJoint = manager.GetRawSkeletonJointPos(userId, i);
+					Vector3 posJoint = manager.GetJointPosDepthOverlay(userId, i, foregroundCamera, foregroundImgRect);
 
-					if(posJoint != Vector3.zero)
+					if (i == 0) 
 					{
-						// convert the joint 3d position to depth 2d coordinates
-						Vector2 posDepth = manager.GetDepthMapPosForJointPos(posJoint);
-						
-						float scaledX = posDepth.x * foregroundRect.width / KinectWrapper.Constants.DepthImageWidth;
-						float scaledY = posDepth.y * -foregroundRect.height / KinectWrapper.Constants.DepthImageHeight;
+						// sphere collider for body center
+						jointColliders[i].transform.position = posJoint;
 
-						float screenX = foregroundOfs.x + scaledX;
-						float screenY = Camera.main.pixelHeight - (foregroundOfs.y + scaledY);
-						float zDistance = posJoint.z - Camera.main.transform.position.z;
-						
-						Vector3 posScreen = new Vector3(screenX, screenY, zDistance);
-						Vector3 posCollider = Camera.main.ScreenToWorldPoint(posScreen);
+						Quaternion rotCollider = manager.GetJointOrientation(userId, i, true);
+						jointColliders[i].transform.rotation = rotCollider;
 
-						jointColliders[i].transform.position = posCollider;
+						bActive = true;
+					} 
+					else 
+					{
+						int p = (int)manager.GetParentJoint((KinectInterop.JointType)i);
+
+						if (manager.IsJointTracked (userId, p)) 
+						{
+							// capsule collider for bones
+							Vector3 posParent = manager.GetJointPosDepthOverlay(userId, p, foregroundCamera, foregroundImgRect);
+
+							Vector3 posCollider = (posJoint + posParent) / 2f;
+							jointColliders[i].transform.position = posCollider;
+
+							Quaternion rotCollider = Quaternion.FromToRotation (Vector3.up, (posJoint - posParent).normalized);
+							jointColliders[i].transform.rotation = rotCollider;
+
+							CapsuleCollider collider = jointColliders [i].GetComponent<CapsuleCollider>();
+							collider.height = (posJoint - posParent).magnitude;
+
+							bActive = true;
+						}
 					}
+				}
+
+				if (jointColliders[i].activeSelf != bActive) 
+				{
+					// change collider activity
+					jointColliders[i].SetActive(bActive);
 				}
 			}
 		}
@@ -100,7 +160,7 @@ public class DepthImageViewer : MonoBehaviour
 	{
 		if(foregroundTex)
 		{
-			GUI.DrawTexture(foregroundRect, foregroundTex);
+			GUI.DrawTexture(foregroundGuiRect, foregroundTex);
 		}
 	}
 
