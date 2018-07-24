@@ -53,15 +53,17 @@ public class GameControlScript : MonoBehaviour
 		GUILayout.BeginVertical();
 
 		GUILayout.Label("");
-		GUILayout.Label("<b>* FORWARD / GO AHEAD</b>");
-		GUILayout.Label("<b>* BACK / GO BACK</b>");
-		GUILayout.Label("<b>* TURN LEFT</b>");
-		GUILayout.Label("<b>* TURN RIGHT</b>");
-		GUILayout.Label("<b>* RUN</b>");
-		GUILayout.Label("<b>* JUMP</b>");
-		GUILayout.Label("<b>* STOP</b>");
-		GUILayout.Label("<b>* HELLO / WAVE</b>");
-		GUILayout.Label("<i>For more audio commands\nlook at the grammar file.</i>");
+        GUILayout.Label("<i>COMANDOS PARA EL PERSONAJE</i>");
+        GUILayout.Label("<i>Hablar fuerte y claro:</i>");
+        GUILayout.Label("<b>* Ir para adelante decir: FORWARD / GO AHEAD</b>");
+		GUILayout.Label("<b>* Ir para atrás decir:    BACK / GO BACK</b>");
+		GUILayout.Label("<b>* Girar hacia la derecha:  TURN LEFT</b>");
+		GUILayout.Label("<b>* Girar hacia la izquierda: TURN RIGHT</b>");
+		GUILayout.Label("<b>* Correr decir: RUN</b>");
+		GUILayout.Label("<b>* Saltar decir: JUMP</b>");
+		GUILayout.Label("<b>* Detenerse decir: STOP</b>");
+		GUILayout.Label("<b>* Para saludar decir: HELLO / WAVE</b>");
+		GUILayout.Label("<i>El personaje responderá a cada una de sus peteciones</i>");
 		
 		GUILayout.EndVertical();
 		
