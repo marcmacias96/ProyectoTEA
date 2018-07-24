@@ -52,18 +52,16 @@ public class GameControlScript : MonoBehaviour
 	{
 		GUILayout.BeginVertical();
 
-		GUILayout.Label("");
-        GUILayout.Label("<i>COMANDOS PARA EL PERSONAJE</i>");
-        GUILayout.Label("<i>Hablar fuerte y claro:</i>");
-        GUILayout.Label("<b>* Ir para adelante decir: FORWARD / GO AHEAD</b>");
-		GUILayout.Label("<b>* Ir para atrás decir:    BACK / GO BACK</b>");
+	   GUILayout.Label("<i>Hablar Fuerte y Claro</i>");
+       GUILayout.Label("<b>* Ir para adelante decir: FORWARD</b>");
+		GUILayout.Label("<b>* Ir para atras decir:    BACK </b>");
 		GUILayout.Label("<b>* Girar hacia la derecha:  TURN LEFT</b>");
 		GUILayout.Label("<b>* Girar hacia la izquierda: TURN RIGHT</b>");
 		GUILayout.Label("<b>* Correr decir: RUN</b>");
 		GUILayout.Label("<b>* Saltar decir: JUMP</b>");
 		GUILayout.Label("<b>* Detenerse decir: STOP</b>");
-		GUILayout.Label("<b>* Para saludar decir: HELLO / WAVE</b>");
-		GUILayout.Label("<i>El personaje responderá a cada una de sus peteciones</i>");
+		GUILayout.Label("<b>* Para saludar decir: HELLO </b>");
+	
 		
 		GUILayout.EndVertical();
 		
@@ -74,7 +72,7 @@ public class GameControlScript : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.skin = guiSkin;
-		guiWindowRect = GUI.Window(0, guiWindowRect, ShowGuiWindow, "Audio Commands");
+		guiWindowRect = GUI.Window(0, guiWindowRect, ShowGuiWindow, "Comandos Personaje");
 	}
 	
 }
