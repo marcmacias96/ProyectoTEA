@@ -2385,7 +2385,7 @@ public class KinectManager : MonoBehaviour
 		// GUI Text.
 		if(calibrationText != null)
 		{
-			calibrationText.text = "WAITING FOR USERS";
+			calibrationText.text = "ESPERANDO USUARIO";
 		}
 		
 		Debug.Log("Waiting for users.");

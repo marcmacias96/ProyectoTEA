@@ -36,6 +36,6 @@ EditorBuildSettings:
     path: Assets/Minijuegos/KinectDemos/BackgroundRemovalDemo/KinectBackgroundRemoval1.unity
     guid: 84ebae97ee16207448d3731485bfeff6
   - enabled: 1
-    path: Assets/Minijuegos/KinectDemos/BackgroundRemovalDemo/KinectBackgroundRemoval2.unity
-    guid: 165a2d2ef88399241b1aa0af820167b4
+    path: Assets/Minijuegos/KinectDemos/BackgroundRemovalDemo/KinectBackgroundRemoval3.unity
+    guid: 3fbbb70d672a20d48ac380d754d0f812
   m_configObjects: {}
