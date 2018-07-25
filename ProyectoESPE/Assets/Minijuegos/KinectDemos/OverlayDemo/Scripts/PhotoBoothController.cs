@@ -148,7 +148,7 @@ public class PhotoBoothController : MonoBehaviour, KinectGestures.GestureListene
 
 		if (infoText) 
 		{
-			infoText.text = "Swipe left or right to change props. Make hand grip to take photo.";
+			infoText.text = "Desliza la mano hacia la izquierda o derecha para cambiar los accesorios. Aprieta con la mano para tomar una foto.";
 		}
 	}
 
@@ -208,7 +208,7 @@ public class PhotoBoothController : MonoBehaviour, KinectGestures.GestureListene
 		{
 			if (infoText) 
 			{
-				infoText.text = "Hand grip detected.";
+				infoText.text = "Apreton de mano detectado.";
 			}
 
 			//StartCoroutine(CountdownAndTakePicture());

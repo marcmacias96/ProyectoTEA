@@ -181,7 +181,7 @@ public class CategorySelector : MonoBehaviour, KinectGestures.GestureListenerInt
 		{
 			if(infoText != null && manager.playerCalibrationPose == KinectGestures.Gestures.Tpose)
 			{
-				infoText.text = "Please stand in T-pose for calibration.";
+				infoText.text = "Por favor parese en T-pose para la calibracion.";
 			}
 		} 
 		else 

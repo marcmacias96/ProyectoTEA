@@ -35,7 +35,7 @@ public class LinePainter : MonoBehaviour
 		{
 			if(infoText)
 			{
-				infoText.text = "Grip hand to start drawing. Press [U] to undo the last line.";
+				infoText.text = "Agarre la mano para comenzar a dibujar. Presione [U] para deshacer la última línea.";
 			}
 		}
 
