@@ -314,6 +314,10 @@ Prefab:
       propertyPath: m_Name
       value: jumper5
       objectReference: {fileID: 0}
+    - target: {fileID: 8267130, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e5df2303ee84aa64cbed69af95beac80, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
   m_IsPrefabParent: 0
@@ -384,6 +388,10 @@ Prefab:
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8267130, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5dab7f34ce6043d48b2e30f05ea85c09, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
   m_IsPrefabParent: 0
@@ -523,6 +531,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8267130, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 293e1f420042b7046851265633f8cfab, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
   m_IsPrefabParent: 0
@@ -918,6 +930,10 @@ Prefab:
       propertyPath: m_Name
       value: jumper3
       objectReference: {fileID: 0}
+    - target: {fileID: 8267130, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d5b62ccb782befb4f80f24ef9f5ada20, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
   m_IsPrefabParent: 0
@@ -1018,6 +1034,10 @@ Prefab:
       propertyPath: m_Name
       value: jumper4
       objectReference: {fileID: 0}
+    - target: {fileID: 8267130, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bd3ca9d6292c2fb45ad71e8de14ea095, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08277d84cb205e54cbac3e57b65d10d3, type: 2}
   m_IsPrefabParent: 0
