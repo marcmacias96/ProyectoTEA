@@ -202,9 +202,9 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 			if(userID != 0)
 			{
 				if(draggedObject != null)
-					sInfo = "Dragging the " + draggedObject.name + " around.";
+					sInfo = "Arrastrando el " + draggedObject.name + ".";
 				else
-					sInfo = "Please grab and drag an object around.";
+					sInfo = "Por favor agarra y arrastra un objeto alrededor.";
 			}
 			else
 			{
@@ -212,7 +212,7 @@ public class GrabDropScript : MonoBehaviour, InteractionListenerInterface
 
 				if(kinectManager && kinectManager.IsInitialized())
 				{
-					sInfo = "Waiting for Users...";
+					sInfo = "Esperando usuarios...";
 				}
 				else
 				{

@@ -101,7 +101,7 @@ public class CubeGestureListener : MonoBehaviour, KinectGestures.GestureListener
 
 		if(gestureInfo != null)
 		{
-			gestureInfo.text = "Swipe left, right or up to change the slides.";
+			gestureInfo.text = "Desliza hacia la izquierda, derecha o hacia arriba para cambiar lado del cubo.";
 		}
 	}
 
