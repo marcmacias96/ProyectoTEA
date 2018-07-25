@@ -1,0 +1,173 @@
+[33mcommit 29a76ecee818152f450a951aac8bbbcb6acf7fc1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: BrayansTapia <brayanstapia@hotmail.com>
+Date:   Mon Jul 23 19:14:04 2018 -0500
+
+    Modificacion Mini Juego 2
+    
+    Se modifico el mini juego y funciona con el kinect
+
+[33mcommit 4d55ad8c65c73cbcd674bc775440eaff2d05bf81[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 23 22:01:46 2018 -0500
+
+    Se agrego el exterior de la casa
+
+[33mcommit f4abe355b4837233e83bd9236c04e591805d7950[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Wed Jul 18 08:34:24 2018 -0500
+
+    Correccion menus inicio
+
+[33mcommit 68d5a0507abfa35b17bc5a19db5fc0acc9c15acb[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Tue Jul 17 00:23:25 2018 -0500
+
+     j
+
+[33mcommit 03eb80a5d5f1fdc440940632321dfc139b28195d[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 23:24:41 2018 -0500
+
+    añadir carpetas dañadas
+
+[33mcommit def711affb3a345ac0eb9dbaca5dbc722585db61[m
+Merge: 8c27b142 16c1d08a
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 23:16:10 2018 -0500
+
+    Fusion entre rama miguel para añadir carpetas que se dañaron
+
+[33mcommit 8c27b1425236d7cbe513a031b8138f549fae8857[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 23:13:52 2018 -0500
+
+     eliminacion de carpetas dañadas
+
+[33mcommit 16c1d08aa6fd3d8ae56a3ae4c5563857ee85c9d4[m[33m ([m[1;31morigin/Miguel-Branch[m[33m, [m[1;32mMiguel-Branch[m[33m)[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 23:12:11 2018 -0500
+
+     mm
+
+[33mcommit 91b64ec4b919a3e946fee7147f2dcb4bedd3ec4b[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 22:59:24 2018 -0500
+
+    sin errores
+
+[33mcommit 7fac811b022add8ec5fe4399c3f5d7cb0942a8fb[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 22:45:19 2018 -0500
+
+    Revert "error"
+    
+    This reverts commit 65691df24da2020db2134c060b242563be9bc71e.
+
+[33mcommit 754506adec82d0443c0f81ad9eee75597df6b407[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 22:27:03 2018 -0500
+
+     ggg
+
+[33mcommit b9268ba6c6464000d91b559823cc5f7a86ae4d60[m[33m ([m[1;32mramaerror[m[33m)[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 21:58:21 2018 -0500
+
+    error
+
+[33mcommit 1143cc6505d8c125fa95e3e70ba99aea3c9e3e95[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 21:55:36 2018 -0500
+
+    error
+
+[33mcommit 65691df24da2020db2134c060b242563be9bc71e[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 21:20:55 2018 -0500
+
+    error
+
+[33mcommit 8f58985b65bbbc557921b16c13c2b4737f9c92c4[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 16 21:20:00 2018 -0500
+
+    Revert "Correccion de errores de Rendimiento"
+    
+    This reverts commit 7759a5141d6258f119c96a43681ba8a7c82bd140, reversing
+    changes made to 2aacaf07a319b2ca7cfa0a117c6d88e26a4f2a0b.
+
+[33mcommit 1d666ed7171ffbb0dc1b7dfd1cdeecafee94b3a1[m[33m ([m[1;31morigin/TapiaBrayan[m[33m)[m
+Author: BrayansTapia <brayanstapia@hotmail.com>
+Date:   Mon Jul 16 12:45:00 2018 -0500
+
+    Creacion nueva rama
+
+[33mcommit 7759a5141d6258f119c96a43681ba8a7c82bd140[m[33m ([m[1;31morigin/sebasG[m[33m, [m[1;31morigin/ramaerror2[m[33m, [m[1;32mramaerror2[m[33m)[m
+Merge: 2aacaf07 14006cb5
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Sun Jul 15 15:57:32 2018 -0500
+
+    Correccion de errores de Rendimiento
+
+[33mcommit 14006cb579d810a0580a0b1df9123543ba582780[m[33m ([m[1;31morigin/ramaerror[m[33m, [m[1;32mrespaldo[m[33m)[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Sun Jul 15 14:48:51 2018 -0500
+
+    correccion de errores y mejora de rendimiento
+
+[33mcommit 2aacaf07a319b2ca7cfa0a117c6d88e26a4f2a0b[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Sun Jul 15 13:08:50 2018 -0500
+
+    Fucion entre ramas master y Miguel-Branch adicion de casa y base en minijuegos
+
+[33mcommit e946511958db08b71b2bc06ddbd1f8f39418551e[m[33m ([m[1;31morigin/TapiaBryan[m[33m)[m
+Author: BrayansTapia <brayanstapia@hotmail.com>
+Date:   Thu Jul 12 13:39:26 2018 -0500
+
+    Mini Juegos
+    
+    Mas Cambios
+
+[33mcommit 8941c2bffa5b9dc16af4ee085c392d3f2325b2ca[m
+Author: miguelangarano <miguelangarano@gmail.com>
+Date:   Thu Jul 12 13:28:53 2018 -0500
+
+    Minijuegos
+    
+    En esta actualizacion estoy subiendo el modelo de casa y el minijuego que yo desarrolle
+
+[33mcommit c4eb3871a03dcbe53959d72ab9f9caed65630a7f[m
+Author: BrayansTapia <brayanstapia@hotmail.com>
+Date:   Thu Jul 12 12:48:06 2018 -0500
+
+    Mini Juegos
+    
+    Se encuentra cada uno de los mini juegos que van a sirvir en el proyecto
+    los cuales seran agregados al sistema
+
+[33mcommit 6693c240b78145a8f5ccdd3d2d493c516154d121[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 9 14:11:44 2018 -0500
+
+    Carga de ARchivos
+
+[33mcommit 83ccb7843f85ebc27d34b82162c64984b2034957[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Mon Jul 9 13:44:31 2018 -0500
+
+    Carga de Archivos
+
+[33mcommit 922ca743c8034a1fcbb26b09226f48af207f82e0[m
+Author: SebasGalarza <andyxd1994@hotmail.com>
+Date:   Mon Jul 9 12:50:54 2018 -0500
+
+    readme
+    
+    Descripcion del proyecto
+
+[33mcommit bb1dfb008136c0c949d22388d654c886ab720525[m
+Author: Marco Macias <mamacias3@espe.edu.ec>
+Date:   Sun Jul 8 01:28:41 2018 -0500
+
+    Initial commit
