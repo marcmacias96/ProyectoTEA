@@ -2379,7 +2379,7 @@ public class KinectManager : MonoBehaviour
 		kinectInitialized = true;
 
 #if USE_SINGLE_KM_IN_MULTIPLE_SCENES
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 #endif
 		
 		// GUI Text.
