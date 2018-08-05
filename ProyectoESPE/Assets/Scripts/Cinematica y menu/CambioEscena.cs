@@ -44,7 +44,7 @@ public class CambioEscena : MonoBehaviour {
     }
     public void Regresar()
     {
-        StartCoroutine(LoadSceneSlider());
+       StartCoroutine(LoadSceneSlider());
     }
 
     IEnumerator LoadSceneSlider()

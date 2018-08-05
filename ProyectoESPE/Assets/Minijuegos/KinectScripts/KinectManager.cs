@@ -2388,7 +2388,7 @@ public class KinectManager : MonoBehaviour
 			calibrationText.text = "ESPERANDO USUARIO";
 		}
 		
-		Debug.Log("Waiting for users.");
+		Debug.Log("Esperando Usuario.");
 	}
 
     private KinectInterop.SmoothParameters InitSmoothParameters( Smoothing smoothing )
@@ -3983,11 +3983,11 @@ public class KinectManager : MonoBehaviour
 		
 		if(alUserIds.Count == 0)
 		{
-			Debug.Log("Waiting for users.");
+			Debug.Log("Esperando Usuario.");
 			
 			if(calibrationText != null)
 			{
-				calibrationText.text = "WAITING FOR USERS";
+				calibrationText.text = "ESPERANDO USUARIO";
 			}
 		}
 	}
