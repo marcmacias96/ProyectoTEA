@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Minijuegos/Juegos/Interaction/AnimalesJuego.unity
     guid: a2de4288da8a3b3459793199091b01f0
+  - enabled: 1
+    path: Assets/Minijuegos/KinectDemos/InteractionDemoVocales/KinectInteractionDemo1.unity
+    guid: 67b528252fcc0c24e8149aba478116f8
   m_configObjects: {}

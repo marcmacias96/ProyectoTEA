@@ -91,7 +91,7 @@ public class CambioEscena : MonoBehaviour {
 
     public void Vocales()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(18);
     }
 
     // Regresar 
