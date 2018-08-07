@@ -5,43 +5,97 @@ using UnityEngine.SceneManagement;
 
 public class CambioEscena : MonoBehaviour {
     private AsyncOperation asyncLoad;
+    // Ropero de Gordito
 
-    public void E1()
+    public void RoperoPictograma()
+    {
+        SceneManager.LoadScene(15);
+    }
+    public void RoperoEsena()
     {
         SceneManager.LoadScene(2);
     }
-    public void E2()
+
+    //Emociones con gordito 
+    public void PigtogramaEmociones()
+    {
+        SceneManager.LoadScene(11);
+    }
+
+    public void Emociones()
     {
         SceneManager.LoadScene(3);
     }
-    public void E3()
+
+    //Moviendo Objetos 
+     
+    public void PictogramaMovimientos()
+    {
+        SceneManager.LoadScene(14);
+    }
+
+    public void Movimientos()
     {
         SceneManager.LoadScene(4);
     }
-    public void E4()
+
+    //Fotografias
+
+    public void PictogramaFotos()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(12);
     }
-    public void E5()
+    public void Photo()
     {
         SceneManager.LoadScene(6);
     }
-    public void E6()
+
+    //Ingles Gordito
+    public void PictogramaIngles()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(13);
     }
-    public void E7()
+    public void Ingles()
     {
         SceneManager.LoadScene(8);
     }
-    public void E8()
-    {
-        SceneManager.LoadScene(9);
-    }
-    public void E9()
+
+    //Colores 
+
+    public void PictogramaColores()
     {
         SceneManager.LoadScene(10);
     }
+
+    public void Colores()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    //Animales 
+
+    public void PictogramaAnimales()
+    {
+        SceneManager.LoadScene(9);
+    }
+    public void Animales()
+    {
+        SceneManager.LoadScene(17);
+    }
+
+    // Vocales
+    public void PictogramaVocales()
+    {
+        SceneManager.LoadScene(16);
+    }
+
+    public void Vocales()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    // Regresar 
+
     public void Regresar()
     {
        StartCoroutine(LoadSceneSlider());

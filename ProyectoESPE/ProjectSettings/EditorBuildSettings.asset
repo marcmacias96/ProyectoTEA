@@ -33,9 +33,30 @@ EditorBuildSettings:
     path: Assets/Minijuegos/KinectDemos/SpeechRecognitionDemo/KinectSpeechRecognition.unity
     guid: 697a42468d0d7e64aacb18fb031102fd
   - enabled: 1
-    path: Assets/Minijuegos/KinectDemos/BackgroundRemovalDemo/KinectBackgroundRemoval1.unity
-    guid: 84ebae97ee16207448d3731485bfeff6
+    path: Assets/Scenes/Pictogramas/PictogramaAnimales.unity
+    guid: 67e30be20d2b528428041efb89d45209
   - enabled: 1
-    path: Assets/Minijuegos/KinectDemos/BackgroundRemovalDemo/KinectBackgroundRemoval3.unity
-    guid: 3fbbb70d672a20d48ac380d754d0f812
+    path: Assets/Scenes/Pictogramas/PictogramaColores.unity
+    guid: 8577a1641171d9241b8a8baade5f9c2c
+  - enabled: 1
+    path: Assets/Scenes/Pictogramas/PictogramaEmociones.unity
+    guid: 0b0cef26f915fbe44a68ea638cc925ce
+  - enabled: 1
+    path: Assets/Scenes/Pictogramas/PictogramaFotos.unity
+    guid: ac6a4d4e4c168ab4eabf398dc9775f6e
+  - enabled: 1
+    path: Assets/Scenes/Pictogramas/PictogramaIngles.unity
+    guid: 3818d8a2591e8fc448bef547f8ffd7da
+  - enabled: 1
+    path: Assets/Scenes/Pictogramas/PictogramaObjetos.unity
+    guid: 026d85c8286bdfc47b25661d5c2b2c61
+  - enabled: 1
+    path: Assets/Scenes/Pictogramas/PictogramaRopa.unity
+    guid: 2018bd31641824d4ca924c953a329f90
+  - enabled: 1
+    path: Assets/Scenes/Pictogramas/PictogramaVocales.unity
+    guid: 0fb0167d1742fc345a1eba9c46906864
+  - enabled: 1
+    path: Assets/Minijuegos/Juegos/Interaction/AnimalesJuego.unity
+    guid: a2de4288da8a3b3459793199091b01f0
   m_configObjects: {}
