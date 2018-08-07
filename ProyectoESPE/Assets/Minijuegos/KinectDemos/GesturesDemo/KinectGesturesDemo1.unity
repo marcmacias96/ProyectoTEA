@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -954,16 +954,16 @@ MonoBehaviour:
   slideChangeWithKeys: 1
   spinSpeed: 5
   slideTextures:
-  - {fileID: 2800000, guid: 6c68fbcd1dc37084ea39bc9b9e3352f4, type: 3}
+  - {fileID: 2800000, guid: 1aa2ccdc36c00a64eae22e350fa35784, type: 3}
   - {fileID: 2800000, guid: a2e424dfcfca4be419051b52d695a850, type: 3}
-  - {fileID: 2800000, guid: 021859df266bae047b034dc74144abcd, type: 3}
-  - {fileID: 2800000, guid: 2cc1f2716eff6064d870615e94985040, type: 3}
-  - {fileID: 2800000, guid: e5cfbdae45077d749a23a2f611382c05, type: 3}
-  - {fileID: 2800000, guid: 0846ebb0e68ac1446ad363ccf0598905, type: 3}
-  - {fileID: 2800000, guid: 4ab29b899625e1142b7d500d79574bae, type: 3}
-  - {fileID: 2800000, guid: e78f8c6f89346a0469187c6c74568761, type: 3}
-  - {fileID: 2800000, guid: 2072e4f633b410c429bd8d13d19d319d, type: 3}
-  - {fileID: 2800000, guid: 50cec73a0ed5d8949983654b1e9625c3, type: 3}
+  - {fileID: 2800000, guid: e7cf2b31826cd644f811747275c75761, type: 3}
+  - {fileID: 2800000, guid: 74b9cde0e5438134d80cbaaceb5750c6, type: 3}
+  - {fileID: 2800000, guid: d59de9816c5a32143a7bb09d1188c94e, type: 3}
+  - {fileID: 2800000, guid: f3e56aa56d8a9db41b3f7ccae558f040, type: 3}
+  - {fileID: 2800000, guid: c86eda69e27d5bb4ea35c0f7b66ec954, type: 3}
+  - {fileID: 2800000, guid: 3464410ef6b6ad74592892615e4f0a8b, type: 3}
+  - {fileID: 2800000, guid: e677bc7736698d440857dcd99995e9a4, type: 3}
+  - {fileID: 2800000, guid: 4bc7f0da1119c124dbe9a61e94cacadf, type: 3}
   cubeSides:
   - {fileID: 1115004520}
   - {fileID: 1612776090}
@@ -1005,8 +1005,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 319, y: -271}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 319, y: -264.3}
+  m_SizeDelta: {x: 160, y: 43.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534704750
 MonoBehaviour:
@@ -1266,7 +1266,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0.019607844}
+  m_BackGroundColor: {r: 0.6803133, g: 0.9811321, b: 0.9783568, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1426,7 +1426,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: fae067962e5934395be31c8aba4a3455, type: 3}
     m_FontSize: 27
     m_FontStyle: 1
     m_BestFit: 0
