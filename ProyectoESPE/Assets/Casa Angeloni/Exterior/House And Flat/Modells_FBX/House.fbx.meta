@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 31d02e67dd15a514382bf0bcfdbfc7f0
-timeCreated: 1516668526
-licenseType: Store
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Bone
     100002: Bone 1
@@ -1064,10 +1062,118 @@ ModelImporter:
     7400180: Garage|Garage.007
     7400182: gartentor part.001|Garage
     9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carpet
+    second: {fileID: 2100000, guid: 24fb232f48535204480cea569017158c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chimney
+    second: {fileID: 2100000, guid: 5836d5bb6b4816647a543e39008b87fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: ecd071182f0527f41bc27afb59f538a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door_ Interior
+    second: {fileID: 2100000, guid: 4e5c4ec7f8fd33f4fa8b399e558300bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door_Front
+    second: {fileID: 2100000, guid: aecb453ad441adf4aa29615098408e23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door_Garage
+    second: {fileID: 2100000, guid: 7ad3c3e4e2872834fb12063f5dbf9e42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door_Slide
+    second: {fileID: 2100000, guid: 60c25f0e5956b784c858b9c05f72c885, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Entrance_Feature
+    second: {fileID: 2100000, guid: ed3d72cfeb577c74a94261655ecf72b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Garage
+    second: {fileID: 2100000, guid: 655a51fce3f63484aafe0a96389dc521, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gutter
+    second: {fileID: 2100000, guid: b040479e80b409a4baca0da98cfedcad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof
+    second: {fileID: 2100000, guid: d4c8298a125cada45bbef74c33c24ea5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tile_Entrance
+    second: {fileID: 2100000, guid: 006a5bfd728631c4082ebf180d2df7aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls_Exterior
+    second: {fileID: 2100000, guid: 023e428cacdc6824f8a572f44e686d43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls_Interior
+    second: {fileID: 2100000, guid: 180fbd806d1cd9d49b3077fe2a602e5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls_Interior2
+    second: {fileID: 2100000, guid: d6ef4d2d72653ca4195dbf8c362b02d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls_InteriorRoof
+    second: {fileID: 2100000, guid: 537414d2d5919e9448fc575ab31b97e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window_1
+    second: {fileID: 2100000, guid: 8032d32350167724e89ca7911e46d040, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window_2
+    second: {fileID: 2100000, guid: 75971a6eb70f89d418a8b089c60378ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 914c99a8135e15448bb8b7241aea149c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: d25346af9ac8aa94b99f6aff8480aa3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: path
+    second: {fileID: 2100000, guid: bd24750edc77e5b4d86513da9ad503be, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -1080,6 +1186,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -1104,11 +1212,15 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
