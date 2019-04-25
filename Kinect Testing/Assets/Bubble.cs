@@ -16,28 +16,12 @@ public class Bubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += mMovementDirection * Time.deltaTime * 0.5f;
+        //transform.position += mMovementDirection * Time.deltaTime * 0.5f;
 
     }
 
-    private void OnEnable(){
-        mCurrentChanger = StartCoroutine(DirectionChanger());
+    public void MakeBigger(){
+        transform.localScale += new Vector3(1F, 0, 0);
     }
-
-    private void OnDisable(){
-        StopCoroutine(mCurrentChanger);
-    }
-
-    private void OnBecameInvisible(){
-        gameObject.SetActive(false);
-    }
-
-    private IEnumerator DirectionChanger(){
-        while(gameObject.activeSelf){
-            mMovementDirection = new Vector2(Random.Range(0,100) * 0.01f, Random.Range(0,100) * 0.01f);
-            yield return new WaitForSeconds(3.0f);
-        }
-    }
-
 
 }

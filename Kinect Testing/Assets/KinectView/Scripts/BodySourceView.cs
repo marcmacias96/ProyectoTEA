@@ -149,7 +149,7 @@ public class BodySourceView : MonoBehaviour
         foreach(Kinect.JointType _joint in _joints){
             Kinect.Joint sourceJoint = body.Joints[_joint];
             Vector3 targetPosition = GetVector3FromJoint(sourceJoint);
-            targetPosition.z = 0;
+            targetPosition.z = 15;
 
             Transform jointObject = bodyObject.transform.Find(_joint.ToString());
             jointObject.position = targetPosition;
