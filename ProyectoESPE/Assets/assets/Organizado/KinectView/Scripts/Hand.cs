@@ -8,10 +8,20 @@ public class Hand : MonoBehaviour
 
     // Start is called before the first frame update
 
-    bool mustHide=false;
     RaycastHit hit;
+    IEnumerator co;
+    public string selectedFlower;
+
+    List<string> colorsList = new List<string>();
+
     void Start()
     {
+        colorsList.Add("yellow");
+        colorsList.Add("green");
+        colorsList.Add("blue");
+        colorsList.Add("red");
+        co = SecondsToHide();
+        ChoseColor();
     }
 
     // Update is called once per frame
@@ -27,20 +37,22 @@ public class Hand : MonoBehaviour
         layerMask = ~layerMask;
 
         
-        IEnumerator co = SecondsToHide();
+        
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask) && hit.transform.gameObject.tag == "Bubble")
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask) && hit.transform.gameObject.tag == "flower")
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            //Debug.Log("Did Hit");
-            mustHide=true;
-            StartCoroutine(co);
+            Debug.Log("Did Hit "+ hit.transform.gameObject.name);
+            if (hit.transform.gameObject.name == selectedFlower)
+            {
+                StartCoroutine(co);
+            }
+            
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            //Debug.Log("Did not Hit");
-            mustHide=false;
+            Debug.Log("Did not Hit ");
             StopCoroutine(co);
         }
     }
@@ -48,12 +60,24 @@ public class Hand : MonoBehaviour
     IEnumerator SecondsToHide()
     {
         //print(Time.time);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         //print(Time.time);
 
-        if(hit.transform!=null && mustHide){
-            //hit.transform.gameObject.SetActive(false);
-            hit.transform.gameObject.SendMessage("MakeBigger");
-        }
+        CorrectSelection();
+    }
+
+    void CorrectSelection()
+    {
+        //Mostrar una felicitacion por haber elegido correctamente
+        Debug.Log("Felicitaciones");
+
+        //Cambiar al siguiente color para seleccionar
+        ChoseColor();
+    }
+
+    void ChoseColor()
+    {
+        selectedFlower = colorsList[Random.Range(0, 4)];
+        Debug.Log(selectedFlower);
     }
 }

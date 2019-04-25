@@ -12,6 +12,8 @@ public class BodySourceView : MonoBehaviour
     private BodySourceManager _BodyManager;
     public GameObject fps;
     private Transform fpstransform;
+    public float angleRotateAround = 0;
+    public float angleRotate = 0;
     
     void Start()
     {
@@ -135,7 +137,7 @@ public class BodySourceView : MonoBehaviour
             newJoint.name = joint.ToString();
             //newJoint.transform.Rotate(0, 70, 0, Space.Self);
             newJoint.transform.parent = body.transform;
-            newJoint.transform.Rotate(0, -180, 0, Space.World);
+            newJoint.transform.Rotate(0, angleRotate, 0, Space.World);
             //newJoint.transform.parent = fpstransform;
         }
 
@@ -172,7 +174,7 @@ public class BodySourceView : MonoBehaviour
             jointObject.position = targetPosition;
             //jointObject.transform.Rotate(0, 20, 0, Space.Self);
             jointObject.rotation = fpstransform.rotation;
-            jointObject.transform.RotateAround(fpstransform.position, Vector3.up, 45);
+            jointObject.transform.RotateAround(fpstransform.position, Vector3.up, angleRotateAround);
 
 
         }
