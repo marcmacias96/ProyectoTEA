@@ -133,8 +133,9 @@ public class BodySourceView : MonoBehaviour
         foreach(Kinect.JointType joint in _joints){
             GameObject newJoint = Instantiate(mJointObject, fpstransform,false);
             newJoint.name = joint.ToString();
-
+            //newJoint.transform.Rotate(0, 70, 0, Space.Self);
             newJoint.transform.parent = body.transform;
+            newJoint.transform.Rotate(0, -180, 0, Space.World);
             //newJoint.transform.parent = fpstransform;
         }
 
@@ -158,8 +159,8 @@ public class BodySourceView : MonoBehaviour
     
     private void RefreshBodyObject(Kinect.Body body, GameObject bodyObject)
     {
-        
         foreach (Kinect.JointType _joint in _joints){
+            
             Kinect.Joint sourceJoint = body.Joints[_joint];
             Vector3 targetPosition = GetVector3FromJoint(sourceJoint);
             //targetPosition.z = 166.6f;
@@ -171,8 +172,10 @@ public class BodySourceView : MonoBehaviour
             jointObject.position = targetPosition;
             //jointObject.transform.Rotate(0, 20, 0, Space.Self);
             jointObject.rotation = fpstransform.rotation;
+            jointObject.transform.RotateAround(fpstransform.position, Vector3.up, 45);
+
+
         }
-        Debug.Log("posicion actual: " + bodyObject.transform.position);
 
         /*for (Kinect.JointType jt = Kinect.JointType.SpineBase; jt <= Kinect.JointType.ThumbRight; jt++)
         {
@@ -217,13 +220,6 @@ public class BodySourceView : MonoBehaviour
     }
     
     private static Vector3 GetVector3FromJoint(Kinect.Joint joint)
-    {
-        //Debug.Log(joint.Position.X +"    "+ joint.Position.Y +"   "+ joint.Position.Z);
-        return new Vector3(joint.Position.X * 10, joint.Position.Y * 10, joint.Position.Z * 10);
-        //return new Vector3(100, 100, 100);
-    }
-
-    private static Vector3 GetRotationVector3FromJoint(Kinect.Joint joint)
     {
         //Debug.Log(joint.Position.X +"    "+ joint.Position.Y +"   "+ joint.Position.Z);
         return new Vector3(joint.Position.X * 10, joint.Position.Y * 10, joint.Position.Z * 10);
