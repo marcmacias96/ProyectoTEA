@@ -978,7 +978,7 @@ public class InteractionManager : MonoBehaviour
 			
 			if((cursorTexture != null) /**&& (isLeftHandPrimary || isRightHandPrimary)*/)
 			{
-				Vector2 posSprite; 
+				Vector2 posSprite=new Vector2(0,0); 
 
 				if(controlMouseCursor)
 				{
@@ -987,8 +987,16 @@ public class InteractionManager : MonoBehaviour
 				}
 				else 
 				{
-					Rect rectCanvas = guiHandCursor.canvas.pixelRect;
-					posSprite = new Vector2(cursorScreenPos.x * rectCanvas.width, cursorScreenPos.y * rectCanvas.height); 
+                    try
+                    {
+                        Rect rectCanvas = guiHandCursor.canvas.pixelRect;
+						posSprite = new Vector2(cursorScreenPos.x * rectCanvas.width, cursorScreenPos.y * rectCanvas.height); 
+                    }
+                    catch (Exception e)
+                    {
+                        //print("error");
+                    }
+                    
 				}
 
 				guiHandCursor.sprite = cursorTexture;
