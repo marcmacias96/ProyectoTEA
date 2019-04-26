@@ -1,5 +1,4 @@
-﻿#if (UNITY_STANDALONE_WIN)
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using System;
 using System.Collections.Generic;
@@ -69,4 +68,3 @@ public static class KinectCopyPluginDataHelper
     }
 
 }
-#endif
